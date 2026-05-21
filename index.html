@@ -164,6 +164,27 @@ tbody tr:hover td{background:var(--bg3)}
 .tbtn.active{color:var(--gold);border-bottom-color:var(--gold)}
 .tpane{display:none}.tpane.active{display:block}
 
+/* Keep acquisition tabs readable without horizontal scrollbars */
+#acquisition .tabbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  border-bottom:none;
+  overflow:visible;
+}
+#acquisition .tbtn{
+  border:1px solid var(--border);
+  border-radius:var(--r);
+  margin-bottom:0;
+  white-space:normal;
+  line-height:1.35;
+  padding:10px 12px;
+}
+#acquisition .tbtn.active{
+  border-color:var(--gold);
+  background:var(--gold-bg);
+}
+
 /* ─── SCENARIO BTNS ───────────────────────────── */
 .scenrow{display:flex;gap:10px;margin-bottom:26px;flex-wrap:wrap}
 .sbtn{flex:1;min-width:140px;padding:12px 14px;border-radius:var(--r);
@@ -375,6 +396,36 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
   .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .card{padding:18px 16px}
   .stat-chip{min-height:128px;padding:14px 14px}
+  .tabbar{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+    border-bottom:none;
+    margin-bottom:22px;
+    overflow:visible;
+  }
+  .tbtn{
+    white-space:normal;
+    text-align:center;
+    padding:10px 8px;
+    line-height:1.35;
+    font-size:10px;
+    border:1px solid var(--border);
+    border-radius:var(--r);
+    margin-bottom:0;
+    min-height:44px;
+  }
+  .tbtn.active{
+    border-color:var(--gold);
+    background:var(--gold-bg);
+  }
+  #acquisition .tabbar{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  #acquisition .tbtn{
+    width:100%;
+  }
   .twrap table{min-width:640px}
   .fstage{flex-direction:column;gap:10px}
   .fnum{width:28px;height:28px;font-size:14px}
@@ -475,6 +526,18 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
       </div>
     </div>
 
+    <div class="card gold" style="margin-bottom:18px">
+      <div class="clabel g">Structural Moat — Tariff-Protected Pricing</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:16px">In October 2025, Section 232 tariffs of 25% took effect on Chinese-origin kitchen cabinets (HTS 9403.40, 9403.90). The rate is scheduled to step to 50% on January 1, 2027. Combined with existing Section 301 duties and AD/CVD orders, Chinese-manufactured cabinets now carry effective duty rates exceeding 70%. Vietnam-origin cabinets, the largest import source after China, face combined rates of approximately 35%.</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:16px">Impress Cabinetry operates factory-direct with US warehouse operations in California. Competitors sourcing Chinese or Vietnamese product are absorbing 25-70%+ landed-cost increases or passing them directly to customers. Our pricing structure is not exposed to those tariff stacks.</div>
+      <div class="g3" style="margin-bottom:12px">
+        <div class="stat-chip"><div class="sc-label">Section 232 tariff</div><div class="sc-val g">25%</div><div class="sc-sub">On imported cabinets (Oct 2025)</div></div>
+        <div class="stat-chip"><div class="sc-label">Scheduled increase</div><div class="sc-val g">50%</div><div class="sc-sub">Rate effective Jan 1, 2027</div></div>
+        <div class="stat-chip"><div class="sc-label">Chinese-origin duty stack</div><div class="sc-val gr">70%+</div><div class="sc-sub">Effective combined duty rate</div></div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);font-family:var(--font-m)">Sources: Section 232 Proclamation (Sept 2025), Federal Register, Allyn International, Next Day Cabinets (2026)</div>
+    </div>
+
     <div class="g4" style="margin-bottom:18px">
       <div class="stat-chip"><div class="sc-label">Startup capital</div><div class="sc-val g">$40–50K</div><div class="sc-sub">Comfortable ramp</div></div>
       <div class="stat-chip"><div class="sc-label">Fixed overhead</div><div class="sc-val">$0</div><div class="sc-sub">No warehouse, no W-2</div></div>
@@ -519,6 +582,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
       <button class="tbtn active" onclick="tab('mg','single',this)">Single Kitchen</button>
       <button class="tbtn" onclick="tab('mg','bulk',this)">Bulk MFU</button>
       <button class="tbtn" onclick="tab('mg','reface',this)">Refacing Deep Dive (Vulpine Homes)</button>
+      <button class="tbtn" onclick="tab('mg','tax',this)">Tax Advantage</button>
       <button class="tbtn" onclick="tab('mg','vs',this)">Stream vs Stream</button>
       <button class="tbtn" onclick="tab('mg','vol',this)">Volume Targets</button>
     </div>
@@ -589,6 +653,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
           <div class="crow"><span class="l">Total our time</span><span class="r">~5 hrs</span></div>
           <div class="crow"><span class="l">Profit / our hour</span><span class="r gr">~$450–$694</span></div>
           <div class="crow"><span class="l">Phoenix avg reface price</span><span class="r">$10,519</span></div>
+          <div class="crow"><span class="l">Phoenix reface range (Angi Phoenix, March 2026)</span><span class="r">$6,902-$14,136</span></div>
           <div class="crow"><span class="l">Our price vs market avg</span><span class="r gr">$2,019 below avg</span></div>
         </div>
       </div>
@@ -602,6 +667,34 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
           </tbody>
         </table>
       </div>
+    </div>
+
+    <div id="mg-tax" class="tpane">
+      <div class="card gold" style="margin-bottom:18px">
+        <div class="clabel g">Reseller Certificate — $14K Working Capital Freed Up Year One</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:14px">Arizona's Transaction Privilege Tax (TPT) combined rate in Phoenix is 9.10% on retail material purchases (Phoenix 2.8% + State 5.6% + Maricopa County 0.7%). Contractors without a reseller certificate and TPT license pay this upfront on every material purchase.</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.72">Vulpine LLC operates with an Arizona TPT reseller certificate, enabling tax-exempt material purchasing with TPT remitted only after customer payment. This is not a small line item.</div>
+      </div>
+      <div class="g2" style="margin-bottom:18px">
+        <div class="card">
+          <div class="clabel">Without reseller cert</div>
+          <div class="crow"><span class="l">Supply order tax timing</span><span class="r">Pay $400.40 upfront per $4,400 order</span></div>
+          <div class="crow"><span class="l">Refacing materials tax timing</span><span class="r">Pay $124.70 upfront per $1,450 order</span></div>
+          <div class="crow"><span class="l">Cash flow impact</span><span class="r">Capital tied up before job starts</span></div>
+        </div>
+        <div class="card gold">
+          <div class="clabel g">With reseller cert (Vulpine)</div>
+          <div class="crow"><span class="l">Supply order tax timing</span><span class="r gr">$0 TPT at purchase; remit after customer pays</span></div>
+          <div class="crow"><span class="l">Cash flow advantage</span><span class="r gr">Timing advantage on every single order</span></div>
+          <div class="crow"><span class="l">Year-one working capital freed</span><span class="r gr">$13,975</span></div>
+        </div>
+      </div>
+      <div class="g3" style="margin-bottom:12px">
+        <div class="stat-chip"><div class="sc-label">Per supply order</div><div class="sc-val g">$400</div><div class="sc-sub">Saved vs unlicensed competitor</div></div>
+        <div class="stat-chip"><div class="sc-label">Year-one advantage</div><div class="sc-val gr">$14K</div><div class="sc-sub">Working capital retained</div></div>
+        <div class="stat-chip"><div class="sc-label">Phoenix TPT rate</div><div class="sc-val">9.10%</div><div class="sc-sub">Deferred, not absorbed</div></div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);font-family:var(--font-m)">Source: City of Phoenix Finance Dept Combined Tax Rate Chart (Jan 2026); AZ DOR MRRA Contracting Guidelines; AZ Form 5000 reseller cert</div>
     </div>
 
     <div id="mg-vs" class="tpane">
@@ -695,6 +788,9 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
       <button class="tbtn" onclick="tab('aq','contractor',this)">Contractor Funnel</button>
       <button class="tbtn" onclick="tab('aq','pm',this)">Property Managers</button>
       <button class="tbtn" onclick="tab('aq','homeowner',this)">Residential</button>
+      <button class="tbtn" onclick="tab('aq','roi',this)">ROI Data</button>
+      <button class="tbtn" onclick="tab('aq','timing',this)">Market Timing</button>
+      <button class="tbtn" onclick="tab('aq','flip',this)">Flip Market</button>
       <button class="tbtn" onclick="tab('aq','trojan',this)">Tech Wedge</button>
       <button class="tbtn" onclick="tab('aq','crosssell',this)">Cross-Sell Map</button>
       <button class="tbtn" onclick="tab('aq','plan',this)">90-Day Sprint</button>
@@ -708,10 +804,10 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
           <div class="crow"><span class="l">AZ licensed contractors</span><span class="r">45,000+</span></div>
           <div class="crow"><span class="l">Regional multifamily network</span><span class="r">2,600+ properties</span></div>
           <div class="crow"><span class="l">Phoenix MFU units tracked (public data)</span><span class="r">423,774</span></div>
-          <div class="crow"><span class="l">MFU net absorption Q1 2026</span><span class="r">6,261 units</span></div>
+          <div class="crow"><span class="l">MFU net absorption Q1 2026</span><span class="r">4,496-6,261 units (Kidder Mathews / Cushman & Wakefield Q1 2026)</span></div>
           <div class="crow"><span class="l">Stabilized Phoenix occupancy</span><span class="r gr">93.4%</span></div>
-          <div class="crow"><span class="l">Contractors reporting labor shortages</span><span class="r" style="color:var(--red)">92%</span></div>
-          <div class="crow"><span class="l">Contractors with project delays (labor)</span><span class="r" style="color:var(--red)">45%</span></div>
+          <div class="crow"><span class="l">AZ construction firms (AGC/NCCER 2025) reporting labor shortages</span><span class="r" style="color:var(--red)">92%</span></div>
+          <div class="crow"><span class="l">AZ construction firms (AGC/NCCER 2025) with project delays</span><span class="r" style="color:var(--red)">45%</span></div>
         </div>
         <div class="card">
           <div class="clabel g">Key trade org relationships to own</div>
@@ -723,7 +819,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
           <div class="crow"><span class="l">State contractor registry</span><span class="r">Prospecting list source</span></div>
         </div>
       </div>
-      <div class="callout gr"><strong>Timing advantage:</strong> 92% of AZ construction firms can't find workers. 45% are delaying projects because of it. The first-message value prop should reduce coordination burden and quoting friction before anything else. Labor-constrained contractors respond to operational relief, not innovation stories.</div>
+      <div class="callout gr"><strong>Timing advantage:</strong> AZ construction firms (AGC/NCCER 2025) show 92% reporting labor shortages and 45% reporting project delays. The first-message value prop should reduce coordination burden and quoting friction before anything else. Labor-constrained contractors respond to operational relief, not innovation stories.</div>
     </div>
 
     <div id="aq-contractor" class="tpane">
@@ -740,7 +836,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
           <div class="fnum">2</div>
           <div class="fb">
             <div class="ft">First-Message Offer — short, operational, low-commitment</div>
-            <div class="fd">Under 100 words. Gong research: pitching the solution too early cuts reply rates by up to 57%. Use an interest-based CTA, not a call ask. Proven opener: <em style="color:var(--text)">"Hey [Name] — we provide wholesale cabinet pricing in Phoenix with a lean-margin model and fast quote turnaround. If you have one live kitchen or investor turn that needs a sharper number, send it over and I'll price it clean with alternates. If useful, we can also tighten your website/CRM after the first job."</em></div>
+            <div class="fd">Under 100 words. Gong research shows pitching the solution too early cuts reply rates by up to 57% (Gong.io, 2025). Use an interest-based CTA, not a call ask. Proven opener: <em style="color:var(--text)">"Hey [Name] — we provide wholesale cabinet pricing in Phoenix with a lean-margin model and fast quote turnaround. If you have one live kitchen or investor turn that needs a sharper number, send it over and I'll price it clean with alternates. If useful, we can also tighten your website/CRM after the first job."</em></div>
           </div>
         </div>
         <div class="fstage">
@@ -760,10 +856,36 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
       </div>
     </div>
 
+    <div id="aq-flip" class="tpane">
+      <div class="card gold" style="margin-bottom:18px">
+        <div class="clabel g">13,500 Annual Phoenix Flips — 85% Include Kitchen Renovations</div>
+        <div class="g4" style="margin-bottom:14px">
+          <div class="stat-chip"><div class="sc-label">Annual flips</div><div class="sc-val g">13,500</div><div class="sc-sub">Maricopa County</div></div>
+          <div class="stat-chip"><div class="sc-label">Kitchen renovation rate</div><div class="sc-val">85%</div><div class="sc-sub">Flips with kitchen work</div></div>
+          <div class="stat-chip"><div class="sc-label">Avg AZ flip profit</div><div class="sc-val">$51,882</div><div class="sc-sub">ATTOM</div></div>
+          <div class="stat-chip"><div class="sc-label">Profit increase per flip</div><div class="sc-val gr">$4,886</div><div class="sc-sub">Using Vulpine vs retail</div></div>
+        </div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:10px">Phoenix has one of the most active fix-and-flip markets in the country. The average Arizona flipper nets $51,882 per deal at a 14.9% margin, and 85% of flips include kitchen work. At $4,886 savings per kitchen vs full-retail competitors, Vulpine improves average flip profit by 9.4% on the cabinet scope alone.</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.72;margin-bottom:10px">Speed is the second value prop. Flippers run on schedules. Our 2-5 day RTA lead time vs 6-8 week custom cabinet lead times, extended further by current import tariff disruptions, keeps a flip on track where competitors create bottlenecks.</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.72">1% capture of Phoenix flip kitchen scope = 115 supply orders per year.</div>
+      </div>
+      <div class="twrap" style="margin-bottom:12px">
+        <table>
+          <thead><tr><th>Capture Rate</th><th>Supply Orders</th><th>Revenue</th><th>Profit</th></tr></thead>
+          <tbody>
+            <tr><td>0.5%</td><td>57 orders</td><td class="tg">$325,698</td><td class="tgr">$74,877</td></tr>
+            <tr><td>1.0%</td><td>115 orders</td><td class="tg">$657,143</td><td class="tgr">$151,071</td></tr>
+            <tr><td>2.0%</td><td>230 orders</td><td class="tg">$1,314,286</td><td class="tgr">$302,143</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="font-size:11px;color:var(--muted);font-family:var(--font-m)">Source: ATTOM Q3 2025 Home Flipping Report; Brad Loans Phoenix Market Analysis 2025; BiggerPockets Phoenix Forum 2025</div>
+    </div>
+
     <div id="aq-pm" class="tpane">
       <div class="callout"><strong>The PM motion starts from a qualified list, not vague prospecting.</strong> Use a purchased multifamily directory with phone numbers + addresses for management companies. Enrich on LinkedIn by title: regional property manager, asset manager, portfolio manager, maintenance supervisor, renovation/project lead.</div>
       <div style="margin-bottom:20px">
-        <div style="font-family:var(--font-m);font-size:9px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px">LinkedIn outreach sequence (InMail under 400 chars = 22% higher response rate)</div>
+        <div style="font-family:var(--font-m);font-size:9px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px">LinkedIn outreach sequence (InMail under 400 chars = 22% higher response rate, LinkedIn 2022)</div>
         <div class="funnel">
           <div class="fstage">
             <div class="fnum">1</div>
@@ -798,6 +920,57 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
       <div class="callout gr"><strong>The conversion offer:</strong> A pilot — one vacant-turn unit, one model unit, or a two-unit comparison at a single property. Make it feel operationally safe and easy to test. Pay-per-turn model available for bulk deals — no massive upfront invoice required.</div>
     </div>
 
+    <div id="aq-roi" class="tpane">
+      <div class="callout"><strong>The ROI Argument — Why Every Client Segment Keeps Buying</strong> The #1 interior home improvement by return on investment is a minor kitchen remodel, not bathrooms, not flooring, not painting. Cabinets drive that number. This data closes deals before pricing is even discussed.</div>
+      <div class="g3">
+        <div class="card gold">
+          <div class="clabel g">Flippers</div>
+          <div class="sc-val g" style="margin-bottom:8px">2-3x return</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.7">Every $1 spent on kitchen cabinet work returns $2-$3 at sale. A $5,714 cabinet order adds $11,000-$17,000 in perceived resale value on the average Phoenix flip.</div>
+          <div style="margin-top:10px;font-size:11px;color:var(--muted);font-family:var(--font-m)">Source: Remodeling Magazine Cost vs. Value 2025</div>
+        </div>
+        <div class="card gold">
+          <div class="clabel g">Property Managers</div>
+          <div class="sc-val g" style="margin-bottom:8px">5-10% rent premium</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.7">Updated kitchens command a 5-10% rent premium in Phoenix multifamily. On a $1,400/mo unit, that is $84-$140/mo per door; a $4,500 bulk refacing investment pays back in under 4 years per unit.</div>
+          <div style="margin-top:10px;font-size:11px;color:var(--muted);font-family:var(--font-m)">Source: NAR Remodeling Impact Report 2025</div>
+        </div>
+        <div class="card gold">
+          <div class="clabel g">Homeowners</div>
+          <div class="sc-val g" style="margin-bottom:8px">96-113% ROI</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.7">Minor kitchen remodels recoup 96-113% of cost nationally, the highest ROI among all interior projects. An $8,500 refacing investment adds $8,160-$9,605 in resale value. Moving and resetting a 3% mortgage to 6.38% costs $25,000-$40,000 in transaction costs alone. The math is not close.</div>
+          <div style="margin-top:10px;font-size:11px;color:var(--muted);font-family:var(--font-m)">Source: Remodeling Magazine Cost vs. Value Report 2025; WSJ, May 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="aq-timing" class="tpane">
+      <div class="callout"><strong>Three Macro Tailwinds All Running Simultaneously</strong></div>
+      <div class="g3">
+        <div class="card">
+          <div class="clabel g">Rate Lock-In Effect</div>
+          <div class="sc-val g" style="margin-bottom:8px">6.38%</div>
+          <div class="sc-sub" style="margin-bottom:10px">30-year fixed rate (May 2026)</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.7">Phoenix homeowners who bought in 2020-2021 locked in 2-4% mortgage rates. Moving today resets them to 6.38%, a $500-$800/mo payment increase on a median Phoenix home. They do not move. They renovate. This effect sustains elevated kitchen remodel demand for 18-24 months regardless of the broader housing market.</div>
+          <div style="margin-top:10px;font-size:11px;color:var(--muted);font-family:var(--font-m)">Source: WSJ Mortgage Rate Index, May 1, 2026; NAHB 2026 Outlook</div>
+        </div>
+        <div class="card">
+          <div class="clabel g">Renovation Cycle</div>
+          <div class="sc-val g" style="margin-bottom:8px">$524B</div>
+          <div class="sc-sub" style="margin-bottom:10px">Projected 2026 US remodeling spend</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.7">Harvard's Joint Center for Housing Studies projects $522-$524B in home renovation and repair spending in 2026, record highs, growing at 2.9% YoY in Q1 2026. Despite a flat housing transaction market, renovation spending is at an all-time high. Property owners are investing in what they have.</div>
+          <div style="margin-top:10px;font-size:11px;color:var(--muted);font-family:var(--font-m)">Source: Harvard JCHS LIRA, January 2026</div>
+        </div>
+        <div class="card">
+          <div class="clabel g">Multifamily Renovation</div>
+          <div class="sc-val g" style="margin-bottom:8px">93.4%</div>
+          <div class="sc-sub" style="margin-bottom:10px">Phoenix stabilized MFU occupancy</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.7">Phoenix MFU operators cannot raise rents on empty units. With stabilized occupancy at 93.4% and rents down 4.1% YoY, operators are deploying capital into renovations to justify rent increases and retain tenants, not selling assets in a 6%+ rate environment. Cabinet refresh is the fastest visible upgrade per dollar in a kitchen scope.</div>
+          <div style="margin-top:10px;font-size:11px;color:var(--muted);font-family:var(--font-m)">Source: Yardi Matrix Phoenix Report, January 2026</div>
+        </div>
+      </div>
+    </div>
+
     <div id="aq-homeowner" class="tpane">
       <div class="callout"><strong>Paid search strategy: start narrow and high-intent.</strong> Don't go broad. Exact and phrase match only until conversion data validates expansion.</div>
       <div class="g2" style="margin-bottom:18px">
@@ -818,13 +991,13 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
           <div class="crow"><span class="l">First screen</span><span class="r">Before/after proof</span></div>
           <div class="crow"><span class="l">Second screen</span><span class="r">Keep layout, replace faces</span></div>
           <div class="crow"><span class="l">Third screen</span><span class="r">Who qualifies + FAQ</span></div>
-          <div class="crow"><span class="l">Review count (97% of buyers read)</span><span class="r">Prominent</span></div>
-          <div class="crow"><span class="l">Review recency (74% care last 3mo)</span><span class="r">Fresh only</span></div>
+          <div class="crow"><span class="l">Review count (97% of buyers read, BrightLocal Local Consumer Review Survey 2026)</span><span class="r">Prominent</span></div>
+          <div class="crow"><span class="l">Review recency (74% care last 3mo, BrightLocal Local Consumer Review Survey 2026)</span><span class="r">Fresh only</span></div>
           <div class="crow"><span class="l">State license + insured proof</span><span class="r">Visible</span></div>
-          <div class="crow"><span class="l">Star rating requirement (31% = 4.5+)</span><span class="r">4.5+ required</span></div>
+          <div class="crow"><span class="l">Star rating requirement (31% = 4.5+, up from 17% in 2025 — BrightLocal 2026)</span><span class="r">4.5+ required</span></div>
         </div>
       </div>
-      <div class="callout gr"><strong>The winning offer for this brand:</strong> Lead with cabinet supply economics for contractors and PMs: "Wholesale RTA cabinet pricing, fast quoting, and reliable project delivery." Second pitch: refacing through Vulpine Homes for qualified lower-disruption scopes. Keep the message rooted in margin clarity and low overhead execution.</div>
+      <div class="callout gr"><strong>The winning offer for this brand:</strong> Lead with cabinet supply economics for contractors and PMs: "Wholesale RTA cabinet pricing, fast quoting, and reliable project delivery." Second pitch: refacing through Vulpine Homes for qualified lower-disruption scopes. Keep the message rooted in margin clarity and low overhead execution. Phoenix refacing cost range benchmark: $6,902-$14,136 (Angi Phoenix, March 2026).</div>
     </div>
 
     <div id="aq-trojan" class="tpane">
@@ -919,7 +1092,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
           <div class="crow"><span class="l">Multifamily pilot quote</span><span class="r gr">1 PM engaged</span></div>
           <div class="crow"><span class="l">Reviews captured</span><span class="r">Aggressive</span></div>
           <div class="crow"><span class="l">Contractor partner workflow</span><span class="r">Install on every win</span></div>
-          <div class="crow"><span class="l">Days 61–90: Narrow hard</div></div>
+          <div class="crow"><span class="l">Days 61–90: Narrow hard</span></div>
           <div class="crow"><span class="l">Contractors bought twice → preferred pricing</span><span class="r">Promote</span></div>
           <div class="crow"><span class="l">Every reface close → referral ask</span><span class="r">Always</span></div>
           <div class="crow"><span class="l">Case studies published</span><span class="r">2 minimum</span></div>
@@ -990,7 +1163,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
         <div class="prank pr1">1</div>
         <div class="pb">
           <div class="pt">Cabinet Supply — Multifamily / Property Manager Outreach</div>
-          <div class="pd">Highest leverage for a two-person team. One PM relationship = 10–50 unit orders. The pitch is simple: side-by-side benchmark pricing at $10,600 versus our $5,714 model. On 25 units that is $122K in projected savings, framed as a budget case rather than a discount argument. Acquire a qualified multifamily list and start LinkedIn outreach on day one. Target: 2–3 PM relationships in 90 days. Our time per close: ~3 hours. Labor brokering adds $570/kitchen passively on top.</div>
+          <div class="pd">Highest leverage for a two-person team. One PM relationship = 10–50 unit orders. The pitch is simple: side-by-side benchmark pricing at $10,600 versus our $5,714 model. On 25 units that is $122K in projected savings, framed as a budget case rather than a discount argument. Acquire a qualified multifamily list and start LinkedIn outreach on day one. Target: 2–3 PM relationships in 90 days. Our time per close: ~3 hours. Labor brokering adds $570/kitchen passively on top. AZ construction firms (AGC/NCCER 2025): 92% report labor shortages and 45% report project delays.</div>
           <div class="pm">Target: 2× 10-unit deals = $26,286 profit — 3 hrs of sales work each</div>
         </div>
       </div>
@@ -1006,7 +1179,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
         <div class="prank pr3">3</div>
         <div class="pb">
           <div class="pt">Cabinet Refacing — Build Pipeline Once Crew Capacity Confirmed</div>
-          <div class="pd">Best margin % (40–47%) but crew-bottlenecked. Keep this as a secondary layer, not a standalone track. Activate only after cabinet supply momentum is established and crew capacity is confirmed. Use refacing through Vulpine Homes to expand value inside accounts already buying supply. 97% of buyers read reviews — capture them on every close.</div>
+          <div class="pd">Best margin % (40–47%) but crew-bottlenecked. Keep this as a secondary layer, not a standalone track. Activate only after cabinet supply momentum is established and crew capacity is confirmed. Use refacing through Vulpine Homes to expand value inside accounts already buying supply. 97% of buyers read reviews (BrightLocal Local Consumer Review Survey, 2026), capture them on every close.</div>
           <div class="pm">Target: 3 jobs/mo by Day 60 = $10,419 additional monthly profit layer</div>
         </div>
       </div>
@@ -1162,6 +1335,24 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
         <div class="dicon md"></div>
         <div class="dtitle">Customer Acquisition Strategy — Deep Research Report</div>
         <div class="ddesc">Full go-to-market acquisition system: contractor funnel, PM outreach sequences, Google Ads strategy, tech wedge playbook, cross-sell map, 90-day sprint.</div>
+        <span class="dbadge">View Document</span>
+      </a>
+      <a class="dcard" onclick="openDoc('tariff')">
+        <div class="dicon"></div>
+        <div class="dtitle">Section 232 Tariff Impact — Kitchen Cabinet Import Duties</div>
+        <div class="ddesc">Federal Register procurement: 25% tariff on imported kitchen cabinets effective October 14, 2025, rate schedule through January 1, 2027, and impact on Phoenix competitor pricing and supply chain.</div>
+        <span class="dbadge">View Document</span>
+      </a>
+      <a class="dcard" onclick="openDoc('cvv2025')">
+        <div class="dicon"></div>
+        <div class="dtitle">Remodeling Magazine Cost vs. Value Report 2025</div>
+        <div class="ddesc">Minor kitchen remodels as highest-ROI interior renovation nationally at 96-113%, with Phoenix ROI benchmarks supporting Vulpine's ROI-first customer pitch.</div>
+        <span class="dbadge">View Document</span>
+      </a>
+      <a class="dcard" onclick="openDoc('lira2026')">
+        <div class="dicon"></div>
+        <div class="dtitle">Harvard JCHS LIRA + NAHB 2026 Housing Outlook</div>
+        <div class="ddesc">$524B projected 2026 US remodeling spend, mortgage lock-in effect analysis, Phoenix MFU renovation-vs-sale dynamics, and macro demand tailwinds for an 18-24 month cycle.</div>
         <span class="dbadge">View Document</span>
       </a>
     </div>
@@ -1422,26 +1613,64 @@ const DOCS = {
     <li>AZ Registrar of Contractors licenses 45,000+ contractors — market is large but fragmented</li>
     <li>Regional multifamily associations: 2,600+ members across key directories</li>
     <li>Public market data tracks 1,978 properties and 423,774 apartment units in Phoenix</li>
-    <li>Phoenix MFU net absorption Q1 2026: 6,261 units; stabilized occupancy: 93.4%</li>
-    <li>92% of AZ construction firms report difficulty finding workers</li>
-    <li>45% say labor shortages cause project delays — strong first-message hook</li>
+    <li>Phoenix MFU net absorption Q1 2026: 4,496-6,261 units (Kidder Mathews / Cushman & Wakefield Q1 2026); stabilized occupancy: 93.4%</li>
+    <li>AZ construction firms (AGC/NCCER 2025): 92% report difficulty finding workers</li>
+    <li>AZ construction firms (AGC/NCCER 2025): 45% report labor-driven project delays, strong first-message hook</li>
     </ul>
     <h3>Contractor Funnel</h3>
     <p><strong>Stage 1 — List Building:</strong> State registry search + regional trade directories. Score each firm on digital pain: website quality, customer ratings, form quality, kitchen/bath scope visibility.</p>
-    <p><strong>Stage 2 — First Message (under 100 words):</strong> Gong research shows pitching solution too early cuts reply rates by 57%. Use interest-based CTA, not a call ask. Proven opener: "Hey [Name] — we provide wholesale cabinets with lean margins and fast quote turnaround. If you've got one live kitchen or investor turn that needs a sharper number, send it over and I'll price it clean with alternates."</p>
+    <p><strong>Stage 2 — First Message (under 100 words):</strong> Gong research shows pitching solution too early cuts reply rates by 57% (Gong.io, 2025). Use interest-based CTA, not a call ask. Proven opener: "Hey [Name] — we provide wholesale cabinets with lean margins and fast quote turnaround. If you've got one live kitchen or investor turn that needs a sharper number, send it over and I'll price it clean with alternates."</p>
     <p><strong>Stage 3 — Tripwire:</strong> 24-hour cabinet quote, 3-option package, or missed-call teardown. Don't make it large. Make it fast and undeniable.</p>
     <p><strong>Stage 4 — Recurring Account:</strong> Saved spec library, standing quote template, 30-day pricing sheet. Then: CRM, missed-call text-back, testimonial automation, and call handling support. 87% of contractors expect AI transformation — only 19% have adapted.</p>
     <h3>Property Manager Outreach</h3>
-    <p>Start from a qualified multifamily membership list. Enrich on LinkedIn by title. LinkedIn InMail response rates: 10–25%. InMails under 400 characters get 22% higher-than-average response. Gong recommends 6–12 touch omnichannel cadence.</p>
+    <p>Start from a qualified multifamily membership list. Enrich on LinkedIn by title. LinkedIn InMail response rates: 10–25%. InMails under 400 characters get 22% higher-than-average response (LinkedIn, 2022). Gong recommends 6–12 touch omnichannel cadence.</p>
     <p><strong>Winning offer:</strong> "Wholesale RTA cabinet pricing with a one-day budgetary quote for a vacant-turn pilot." Not "free consultation." Move from LinkedIn message to quote conversation by asking for exactly one property, one unit type, and cabinet photos.</p>
     <h3>Residential Paid Search</h3>
-    <p>Start with exact/phrase match on strict high-intent terms only. Campaign 1: "cabinet refacing phoenix" and close variants. Campaign 2: comparison intent. Campaign 3: geographic segmentation only after conversion data validates. Landing page must match the ad promise exactly. 97% of consumers read local reviews; 74% care about last 3 months; 31% require 4.5+ stars.</p>
-    <p><strong>Winning offer headline:</strong> "Wholesale RTA cabinet pricing, fast quote turnaround, and reliable project delivery." Secondary headline: "Refacing through Vulpine Homes for qualified lower-disruption scopes."</p>
+    <p>Start with exact/phrase match on strict high-intent terms only. Campaign 1: "cabinet refacing phoenix" and close variants. Campaign 2: comparison intent. Campaign 3: geographic segmentation only after conversion data validates. Landing page must match the ad promise exactly. 97% of consumers read local reviews (BrightLocal Local Consumer Review Survey, 2026); 74% care about last 3 months (BrightLocal Local Consumer Review Survey, 2026); 31% require 4.5+ stars (up from 17% in 2025 — BrightLocal 2026).</p>
+    <p><strong>Winning offer headline:</strong> "Wholesale RTA cabinet pricing, fast quote turnaround, and reliable project delivery." Secondary headline: "Refacing through Vulpine Homes for qualified lower-disruption scopes." Phoenix refacing range benchmark: $6,902-$14,136 (Angi Phoenix, March 2026).</p>
     <h3>Strategic Tech Wedge Playbook</h3>
     <p>Sell "job-winning infrastructure for remodelers who are dropping leads" — not "websites" or "AI solutions." Lead with a free teardown. Credit setup fee into first cabinet orders. Deploy embedded call handling as an operational layer. 77% of contractors who optimized software adoption reported increased profit margins.</p>
     <h3>Cross-Sell Architecture</h3>
     <p>Tech client → supply account. Tech client → refacing referral through Vulpine Homes. Supply customer → tech client. Supply customer's homeowner → refacing lead through Vulpine Homes. Refacing lead → supply when boxes are bad. MFU pilot → supply program for heavier scopes. PM → tech referral through their vendor relationships.</p>
     <p><strong>Operational rule:</strong> Every intake, quote, call log, and job closeout must capture customer type, scope type, and next-best offer. If the CRM doesn't ask those questions, the cross-sell map stays theoretical.</p>`
+  },
+  tariff:{
+    title:'Section 232 Tariff Impact — Kitchen Cabinet Import Duties',
+    html:`<h2>Section 232 Tariff Impact — Kitchen Cabinet Import Duties</h2>
+    <p>Federal Register procurement summary for imported kitchen cabinet duties and timing impact on landed cost competitiveness.</p>
+    <h3>Rate Timeline</h3>
+    <ul>
+      <li>25% Section 232 tariff effective October 14, 2025</li>
+      <li>Scheduled step-up to 50% on January 1, 2027</li>
+      <li>Combined with Section 301 and AD/CVD stacks, selected import channels exceed 70% effective duties</li>
+    </ul>
+    <h3>Commercial Impact</h3>
+    <p>Competitors tied to imported cabinet channels face materially higher landed-cost pressure, either reducing margin or pushing pricing higher at the point of sale.</p>
+    <p><strong class="hl">Source set:</strong> Section 232 Proclamation (Sept 2025), Federal Register, Allyn International, Next Day Cabinets (2026).</p>`
+  },
+  cvv2025:{
+    title:'Remodeling Magazine Cost vs. Value Report 2025',
+    html:`<h2>Remodeling Magazine Cost vs. Value Report 2025</h2>
+    <p>Minor kitchen remodel remains the highest-ROI interior renovation category in the national benchmark set.</p>
+    <h3>Core Findings Used in Plan</h3>
+    <ul>
+      <li>Minor kitchen remodel recoup range: 96-113%</li>
+      <li>Cabinet-focused scope drives value perception and resale utility</li>
+      <li>Supports ROI-first positioning in contractor, PM, and homeowner conversations</li>
+    </ul>
+    <p><strong class="hl">Source:</strong> Remodeling Magazine Cost vs. Value Report 2025.</p>`
+  },
+  lira2026:{
+    title:'Harvard JCHS LIRA + NAHB 2026 Housing Outlook',
+    html:`<h2>Harvard JCHS LIRA + NAHB 2026 Housing Outlook</h2>
+    <p>Macro demand tailwind set supporting sustained renovation activity over the next 18-24 months.</p>
+    <h3>Demand Signals</h3>
+    <ul>
+      <li>Projected 2026 US remodeling spend: $524B</li>
+      <li>Mortgage lock-in dynamics continue to suppress move activity and support remodel spend</li>
+      <li>Phoenix multifamily operators continue renovation-led retention strategies in a high-rate environment</li>
+    </ul>
+    <p><strong class="hl">Source set:</strong> Harvard JCHS LIRA (Jan 2026), NAHB 2026 Outlook.</p>`
   }
 };
 
