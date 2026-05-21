@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Phoenix Cabinet Co. — Confidential Battle Plan</title>
+<title>Vulpine Cause — Confidential Business Plan</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
@@ -22,7 +22,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--text);font-family:var(--font-b);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
 /* ─── NAV ─────────────────────────────────────── */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;
@@ -98,7 +98,7 @@ h1.hero-title em{color:var(--gold);font-style:italic}
 
 /* ─── LAYOUT ──────────────────────────────────── */
 section{padding:96px 0}
-.container{max-width:1180px;margin:0 auto;padding:0 2rem}
+.container{max-width:1180px;margin:0 auto;padding:0 2rem;min-width:0}
 .sec-label{font-family:var(--font-m);font-size:10px;color:var(--gold);
   letter-spacing:0.15em;text-transform:uppercase;margin-bottom:10px;
   display:flex;align-items:center;gap:10px}
@@ -112,7 +112,7 @@ section{padding:96px 0}
 .alt{background:var(--bg2)}
 
 /* ─── CARDS ───────────────────────────────────── */
-.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:24px 26px;transition:border-color .2s}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);padding:24px 26px;transition:border-color .2s;min-width:0}
 .card:hover{border-color:var(--border2)}
 .card.gold{border-color:var(--gold-border)}
 .card.green{border-color:var(--green-border)}
@@ -126,7 +126,7 @@ section{padding:96px 0}
 @media(max-width:700px){.g2,.g3{grid-template-columns:1fr}}
 
 /* ─── STAT CHIPS ──────────────────────────────── */
-.stat-chip{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px}
+.stat-chip{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;min-height:118px}
 .sc-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px}
 .sc-val{font-family:var(--font-d);font-size:26px;font-weight:500;color:var(--text);line-height:1}
 .sc-val.g{color:var(--gold)}
@@ -134,12 +134,12 @@ section{padding:96px 0}
 .sc-sub{font-size:11px;color:var(--dim);margin-top:5px}
 
 /* ─── TABLES ──────────────────────────────────── */
-.twrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);overflow:hidden}
+.twrap{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r2);overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch}
 table{width:100%;border-collapse:collapse;font-size:13px}
 thead th{text-align:left;font-family:var(--font-m);font-size:9px;font-weight:500;
   letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);
-  padding:10px 14px;border-bottom:1px solid var(--border2)}
-tbody td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text)}
+  padding:12px 14px;border-bottom:1px solid var(--border2)}
+tbody td{padding:12px 14px;border-bottom:1px solid var(--border);color:var(--text)}
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover td{background:var(--bg3)}
 .tg{color:var(--gold);font-weight:500}.tgr{color:var(--green);font-weight:500}
@@ -148,9 +148,10 @@ tbody tr:hover td{background:var(--bg3)}
 
 /* ─── ROW ITEM ────────────────────────────────── */
 .crow{display:flex;justify-content:space-between;align-items:baseline;
-  padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+  padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;gap:10px;min-width:0}
 .crow:last-child{border-bottom:none}
-.crow .l{color:var(--muted)}.crow .r{font-weight:500}
+.crow .l{color:var(--muted);flex:1;min-width:0;overflow-wrap:anywhere}
+.crow .r{font-weight:500;text-align:right;min-width:0}
 .crow .r.g{color:var(--gold)}.crow .r.gr{color:var(--green)}
 
 /* ─── TABS ────────────────────────────────────── */
@@ -294,6 +295,7 @@ tbody tr:hover td{background:var(--bg3)}
 .fstage .fb{flex:1}
 .fstage .ft{font-size:13px;font-weight:500;color:var(--text);margin-bottom:4px}
 .fstage .fd{font-size:12px;color:var(--muted);line-height:1.6}
+.fstage .fd em{overflow-wrap:anywhere}
 
 /* ─── MODAL ───────────────────────────────────── */
 .moverlay{display:none;position:fixed;inset:0;z-index:300;
@@ -349,11 +351,42 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
 
 /* ─── RESPONSIVE ──────────────────────────────── */
 @media(max-width:768px){
-  .nav-links{display:none}
+  nav{height:auto;align-items:flex-start;flex-direction:column;gap:2px;padding:8px 1rem 0}
+  .nav-brand{height:42px}
+  .nav-links{display:flex;width:100%;overflow-x:auto;overflow-y:hidden;white-space:nowrap;gap:0;padding-bottom:4px}
+  .nav-links a{height:38px;padding:0 10px;flex:0 0 auto;font-size:10px}
   .hero-stats{gap:24px}
   .hdiv{display:none}
   .scards{grid-template-columns:1fr}
   .revhero{flex-direction:column}
+  .hero{padding-top:136px}
+}
+
+@media(max-width:640px){
+  section{padding:74px 0}
+  .container{padding:0 1rem}
+  h1.hero-title{font-size:clamp(42px,14vw,72px)}
+  .sec-title{font-size:clamp(28px,9vw,42px);overflow-wrap:anywhere}
+  .hero-sub{font-size:clamp(14px,4.2vw,18px)}
+  .hero-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:420px;margin:0 auto 34px}
+  .hstat{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:12px 10px;min-width:0}
+  .hstat .v{font-size:clamp(26px,8.2vw,34px)}
+  .hstat .l{font-size:9px;line-height:1.4}
+  .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .card{padding:18px 16px}
+  .stat-chip{min-height:128px;padding:14px 14px}
+  .twrap table{min-width:640px}
+  .fstage{flex-direction:column;gap:10px}
+  .fnum{width:28px;height:28px;font-size:14px}
+  .crow{align-items:flex-start;flex-wrap:wrap}
+  .crow .r{width:100%;text-align:left;white-space:normal}
+  .trait{max-width:100%;white-space:normal}
+}
+
+@media(max-width:430px){
+  .g4{grid-template-columns:1fr}
+  .hero-btns{width:100%}
+  .hero-btns a{width:100%;text-align:center}
 }
 </style>
 </head>
@@ -364,9 +397,8 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
   <a class="nav-brand" href="#hero">
     <div class="nav-logos">
       <img class="nav-logo" src="vulpine-logo.png" alt="Vulpine">
-      <img class="nav-logo" src="snrg-logo.png" alt="SNRG Labs">
     </div>
-    <span class="nav-name">Phoenix Cabinet Co.</span>
+    <span class="nav-name">Vulpine Cause</span>
     <span class="nav-conf">Confidential</span>
   </a>
   <div class="nav-links">
@@ -389,20 +421,10 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
         <img class="hero-logo vulpine" src="vulpine-logo.png" alt="Vulpine LLC">
         <span class="hero-logo-name">Vulpine, LLC</span>
       </div>
-      <span class="hero-x">×</span>
-      <div class="hero-logo-wrap">
-        <img class="hero-logo" src="snrg-logo.png" alt="SNRG Labs">
-        <span class="hero-logo-name">SNRG Labs, LLC</span>
-      </div>
-      <span class="hero-x">×</span>
-      <div class="hero-logo-wrap">
-        <img class="hero-logo" src="aeondial-logo.png" alt="AeonDial">
-        <span class="hero-logo-name">AeonDial</span>
-      </div>
     </div>
     <div class="hero-eyebrow">Phoenix, Arizona — May 2026</div>
-    <h1 class="hero-title">The Phoenix<br><em>Cabinet Co.</em></h1>
-    <p class="hero-sub">Year-One Confidential Battle Plan</p>
+    <h1 class="hero-title">Vulpine<br><em>Cause</em></h1>
+    <p class="hero-sub">Phoenix's sharpest cabinet supply operation — wholesale RTA pricing backed by our best sourced supplier partnership in cabinetry and project delivery.</p>
     <div class="hero-stats">
       <div class="hstat fu"><span class="v">$621K</span><span class="l">Aggressive Year-One Rev</span></div>
       <div class="hdiv"></div>
@@ -427,13 +449,13 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
     <div class="sec-hdr">
       <div class="sec-label">Section 01</div>
       <h2 class="sec-title">The Business <em>Model</em></h2>
-      <p class="sec-desc">A two-stream, asset-light operation. No warehouse. No employees. No owned inventory. Pure margin on product knowledge, pricing arbitrage, and execution speed.</p>
+      <p class="sec-desc">A two-stream, asset-light operation led by Cabinet Supply as the core engine. No warehouse. No employees. No owned inventory. Margin-driven execution built on product expertise, disciplined pricing, and speed.</p>
     </div>
 
     <div class="g2" style="margin-bottom:18px">
       <div class="card gold">
-        <div class="clabel g">Stream 1 — Cabinet Supply Resale</div>
-        <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px">Purchase tax-exempt from Impress Cabinetry — <strong style="color:var(--text)">the same wholesale source as VIP Cabinets</strong>. Drop-ship RTA cabinets direct to jobsite. Zero inventory, zero assembly, 2–5 day lead time.</div>
+        <div class="clabel g">Stream 1 — Cabinet Supply — Wholesale RTA</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px">Purchase tax-exempt through our best sourced supplier partnership in cabinetry. This gives us wholesale access like the biggest players in Phoenix, without heavy overhead markups. Drop-ship RTA cabinets direct to jobsite. Zero inventory, zero assembly, 2–5 day lead time.</div>
         <div class="crow"><span class="l">Target clients</span><span class="r">GCs, flippers, property managers</span></div>
         <div class="crow"><span class="l">Avg sell price per kitchen</span><span class="r g">$5,714</span></div>
         <div class="crow"><span class="l">Gross margin</span><span class="r gr">23%</span></div>
@@ -442,8 +464,8 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
         <div class="crow"><span class="l">+ Labor finder's fee</span><span class="r g">+10% on install</span></div>
       </div>
       <div class="card gold">
-        <div class="clabel g">Stream 2 — Cabinet Refacing (Vulpine Homes)</div>
-        <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px">CNC-cut fully-finished doors from Texas manufacturer (7-day lead). Install by 1099 sub crew. 1-day install per kitchen. Residential homeowners + multifamily property managers.</div>
+        <div class="clabel g">Stream 2 — Cabinet Refacing via Vulpine Homes</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px">Secondary value-add service offered through Vulpine Homes. CNC-cut fully-finished doors from Texas manufacturer (7-day lead). Install by 1099 sub crew. 1-day install per kitchen. Residential homeowners + multifamily property managers.</div>
         <div class="crow"><span class="l">Target clients</span><span class="r">Homeowners, PMs, HOAs</span></div>
         <div class="crow"><span class="l">Avg project value</span><span class="r g">$8,500</span></div>
         <div class="crow"><span class="l">Gross margin</span><span class="r gr">40.9%</span></div>
@@ -457,17 +479,17 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
       <div class="stat-chip"><div class="sc-label">Startup capital</div><div class="sc-val g">$40–50K</div><div class="sc-sub">Comfortable ramp</div></div>
       <div class="stat-chip"><div class="sc-label">Fixed overhead</div><div class="sc-val">$0</div><div class="sc-sub">No warehouse, no W-2</div></div>
       <div class="stat-chip"><div class="sc-label">Tax structure</div><div class="sc-val">Exempt</div><div class="sc-sub">Reseller cert + AZ TPT</div></div>
-      <div class="stat-chip"><div class="sc-label">We undercut VIP by</div><div class="sc-val gr">$4,886</div><div class="sc-sub">Per kitchen, same product</div></div>
+      <div class="stat-chip"><div class="sc-label">Average customer savings</div><div class="sc-val gr">$4,886</div><div class="sc-sub">Per comparable kitchen scope</div></div>
     </div>
 
     <div class="card">
-      <div class="clabel g">The core arbitrage — same product, radically different strategy</div>
+      <div class="clabel g">Pricing benchmark — same product, no-overhead operating model</div>
       <div class="g2">
         <div>
-          <div style="font-family:var(--font-m);font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">VIP Cabinets (Monty) — actual deal observed</div>
+          <div style="font-family:var(--font-m);font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">Market benchmark quote — observed deal</div>
           <div class="crow"><span class="l">Wholesale cost</span><span class="r">$4,400</span></div>
-          <div class="crow"><span class="l">Their sell price</span><span class="r">$10,600</span></div>
-          <div class="crow"><span class="l">Their gross margin</span><span class="r" style="color:var(--red)">58%</span></div>
+          <div class="crow"><span class="l">Benchmark sell price</span><span class="r">$10,600</span></div>
+          <div class="crow"><span class="l">Benchmark gross margin</span><span class="r" style="color:var(--red)">58%</span></div>
           <div class="crow"><span class="l">Markup over wholesale</span><span class="r">141%</span></div>
         </div>
         <div>
@@ -475,7 +497,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
           <div class="crow"><span class="l">Wholesale cost</span><span class="r">$4,400</span></div>
           <div class="crow"><span class="l">Our sell price</span><span class="r g">$5,714</span></div>
           <div class="crow"><span class="l">Our gross margin</span><span class="r gr">23%</span></div>
-          <div class="crow"><span class="l">Customer savings vs VIP</span><span class="r gr">$4,886 per kitchen</span></div>
+          <div class="crow"><span class="l">Customer savings vs benchmark</span><span class="r gr">$4,886 per kitchen</span></div>
         </div>
       </div>
     </div>
@@ -496,7 +518,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
     <div class="tabbar">
       <button class="tbtn active" onclick="tab('mg','single',this)">Single Kitchen</button>
       <button class="tbtn" onclick="tab('mg','bulk',this)">Bulk MFU</button>
-      <button class="tbtn" onclick="tab('mg','reface',this)">Refacing Deep Dive</button>
+      <button class="tbtn" onclick="tab('mg','reface',this)">Refacing Deep Dive (Vulpine Homes)</button>
       <button class="tbtn" onclick="tab('mg','vs',this)">Stream vs Stream</button>
       <button class="tbtn" onclick="tab('mg','vol',this)">Volume Targets</button>
     </div>
@@ -514,9 +536,9 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
           <div class="crow"><span class="l">Effective $/hr (our time)</span><span class="r gr">$657–$1,314</span></div>
         </div>
         <div class="card">
-          <div class="clabel">VIP Cabinets — observed pricing</div>
+          <div class="clabel">Market benchmark — observed pricing</div>
           <div class="crow"><span class="l">Same wholesale cost</span><span class="r">$4,400</span></div>
-          <div class="crow"><span class="l">VIP sell price</span><span class="r">$10,600</span></div>
+          <div class="crow"><span class="l">Benchmark sell price</span><span class="r">$10,600</span></div>
           <div class="crow"><span class="l">Their gross profit</span><span class="r">$6,200</span></div>
           <div class="crow"><span class="l">Their margin</span><span class="r" style="color:var(--red)">58%</span></div>
           <div class="crow"><span class="l">Markup over wholesale</span><span class="r">141%</span></div>
@@ -524,18 +546,18 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
         </div>
       </div>
       <div class="g4">
-        <div class="stat-chip"><div class="sc-label">Price gap vs VIP</div><div class="sc-val gr">$4,886</div><div class="sc-sub">Per kitchen we undercut</div></div>
-        <div class="stat-chip"><div class="sc-label">Customer discount vs VIP</div><div class="sc-val g">46%</div><div class="sc-sub">Same exact product</div></div>
+        <div class="stat-chip"><div class="sc-label">Price gap vs benchmark</div><div class="sc-val gr">$4,886</div><div class="sc-sub">Per comparable kitchen</div></div>
+        <div class="stat-chip"><div class="sc-label">Customer discount vs benchmark</div><div class="sc-val g">46%</div><div class="sc-sub">Comparable product scope</div></div>
         <div class="stat-chip"><div class="sc-label">Profit per kitchen</div><div class="sc-val">$1,314</div><div class="sc-sub">Supply only at 23%</div></div>
         <div class="stat-chip"><div class="sc-label">With labor broker fee</div><div class="sc-val gr">$1,885</div><div class="sc-sub">+10% on install</div></div>
       </div>
     </div>
 
     <div id="mg-bulk" class="tpane">
-      <div class="callout"><strong>The PM pitch:</strong> Show a property manager the side-by-side. On a 25-unit property, we save them $122K vs VIP. That's not a price negotiation — that's a budget argument we win before they ask a single question.</div>
+      <div class="callout"><strong>The PM pitch:</strong> Show a property manager the side-by-side. On a 25-unit property, projected savings reach $122K versus benchmark pricing. The difference comes from lean margins and a no-overhead structure, not discount tactics.</div>
       <div class="twrap">
         <table>
-          <thead><tr><th>Units</th><th>Wholesale cost</th><th>Our price</th><th>VIP price</th><th>PM savings vs VIP</th><th>Our profit</th></tr></thead>
+          <thead><tr><th>Units</th><th>Wholesale cost</th><th>Our price</th><th>Benchmark price</th><th>PM savings vs benchmark</th><th>Our profit</th></tr></thead>
           <tbody>
             <tr><td>10 units</td><td class="tm">$44,000</td><td class="tg">$57,143</td><td class="tm">$106,000</td><td class="tgr">$48,857</td><td>$13,143</td></tr>
             <tr><td>25 units</td><td class="tm">$110,000</td><td class="tg">$142,857</td><td class="tm">$265,000</td><td class="tgr">$122,143</td><td>$32,857</td></tr>
@@ -585,20 +607,20 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
     <div id="mg-vs" class="tpane">
       <div class="twrap" style="margin-bottom:18px">
         <table>
-          <thead><tr><th>Metric</th><th>Cabinet Supply</th><th>Cabinet Refacing</th><th>Winner</th></tr></thead>
+          <thead><tr><th>Metric</th><th>Cabinet Supply</th><th>Cabinet Refacing (Vulpine Homes)</th><th>Winner</th></tr></thead>
           <tbody>
-            <tr><td>Gross margin %</td><td>23%</td><td>40–47%</td><td class="tgr">Refacing (2×)</td></tr>
-            <tr><td>Profit per job</td><td>$1,314</td><td>$3,473</td><td class="tgr">Refacing +$2,159</td></tr>
             <tr><td>Our time per job</td><td>1–2 hrs</td><td>~5 hrs</td><td class="tg">Supply (faster)</td></tr>
             <tr><td>Profit / our hour</td><td>$657–$1,314</td><td>$450–$694</td><td class="tg">Supply wins/hr</td></tr>
             <tr><td>Scale ceiling</td><td>Unlimited (MFU bulk)</td><td>Crew-limited</td><td class="tg">Supply scales bigger</td></tr>
             <tr><td>Cash flow timing</td><td>100% upfront, ~7 days</td><td>50/50 deposit, 2–3 wks</td><td class="tg">Supply (faster)</td></tr>
+            <tr><td>Gross margin %</td><td>23%</td><td>40–47%</td><td class="tgr">Refacing (2×)</td></tr>
+            <tr><td>Profit per job</td><td>$1,314</td><td>$3,473</td><td class="tgr">Refacing +$2,159</td></tr>
             <tr><td>Relationship stickiness</td><td>Medium (repeat orders)</td><td>High (MFU contracts)</td><td class="tgr">Refacing long-term</td></tr>
             <tr><td>Crew dependency</td><td>None</td><td>High (sub reliability)</td><td class="tg">Supply (none)</td></tr>
           </tbody>
         </table>
       </div>
-      <div class="callout"><strong>Strategic verdict:</strong> Run supply as the volume engine — highest $/hr, no crew dependency, unlimited scale via bulk MFU. Run refacing as the margin layer stacked on top of supply relationships, once crew capacity is confirmed. The two streams share the same client base (property managers), which is the real multiplier.</div>
+      <div class="callout"><strong>Strategic verdict:</strong> Cabinet supply is the primary growth engine: fastest cycle time, strongest $/hour efficiency, no crew dependency, and best scale through MFU volume. Cabinet refacing, offered through Vulpine Homes, is the secondary margin layer stacked onto existing supply relationships once crew capacity is confirmed.</div>
     </div>
 
     <div id="mg-vol" class="tpane">
@@ -612,7 +634,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
           </tbody>
         </table>
       </div>
-      <div class="callout gr"><strong>MFU whale alternative:</strong> One property manager with a 50-unit complex saves $244K vs VIP. That single conversation is worth more than 44 residential kitchen deals. This pitch should be Mike's first call list in week one.</div>
+      <div class="callout gr"><strong>High-impact MFU opportunity:</strong> One property manager with a 50-unit complex can realize up to $244K in projected savings versus benchmark pricing. This is a high-priority outreach segment in week one.</div>
     </div>
   </div>
 </section>
@@ -644,7 +666,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
       </div>
     </div>
     <div class="clegend">
-      <span><span class="cdot" style="background:#c9a84c"></span>Refacing revenue</span>
+      <span><span class="cdot" style="background:#c9a84c"></span>Refacing revenue (Vulpine Homes)</span>
       <span><span class="cdot" style="background:#4caf7d"></span>Supply revenue</span>
       <span><span class="cdot" style="background:#5b9cf6"></span>Cumulative</span>
     </div>
@@ -665,7 +687,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
     </div>
 
     <div class="callout" style="margin-bottom:28px">
-      <strong>Strategic thesis:</strong> Don't market this as three unrelated businesses. Run one wedge-based acquisition system with different front doors. For contractors: cabinet economics first, tech second, referrals third. For multifamily: fast refacing for turns, supply for heavier scopes, tech as the back-office stickiness layer. For homeowners: refacing entry, full replacement upsell. One relationship unlocks multiple monetization routes.
+      <strong>Strategic thesis:</strong> Lead with cabinet supply as the primary offer, then layer in adjacent services. Run one wedge-based acquisition system with different front doors. For contractors: cabinet economics first, tech second, referrals third. For multifamily: supply for heavier scopes first, then refacing through Vulpine Homes for targeted turn upgrades. For homeowners: supply/replacement economics first, with refacing through Vulpine Homes as a selective lower-disruption option. One relationship unlocks multiple monetization routes.
     </div>
 
     <div class="tabbar">
@@ -673,7 +695,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
       <button class="tbtn" onclick="tab('aq','contractor',this)">Contractor Funnel</button>
       <button class="tbtn" onclick="tab('aq','pm',this)">Property Managers</button>
       <button class="tbtn" onclick="tab('aq','homeowner',this)">Residential</button>
-      <button class="tbtn" onclick="tab('aq','trojan',this)">Trojan Horse (Tech)</button>
+      <button class="tbtn" onclick="tab('aq','trojan',this)">Tech Wedge</button>
       <button class="tbtn" onclick="tab('aq','crosssell',this)">Cross-Sell Map</button>
       <button class="tbtn" onclick="tab('aq','plan',this)">90-Day Sprint</button>
       <button class="tbtn" onclick="tab('aq','bidding',this)">Bidding Platforms</button>
@@ -684,8 +706,8 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
         <div class="card">
           <div class="clabel g">Phoenix market sizing (verified data)</div>
           <div class="crow"><span class="l">AZ licensed contractors</span><span class="r">45,000+</span></div>
-          <div class="crow"><span class="l">AMA member properties</span><span class="r">2,600+</span></div>
-          <div class="crow"><span class="l">Phoenix MFU units tracked (Yardi)</span><span class="r">423,774</span></div>
+          <div class="crow"><span class="l">Regional multifamily network</span><span class="r">2,600+ properties</span></div>
+          <div class="crow"><span class="l">Phoenix MFU units tracked (public data)</span><span class="r">423,774</span></div>
           <div class="crow"><span class="l">MFU net absorption Q1 2026</span><span class="r">6,261 units</span></div>
           <div class="crow"><span class="l">Stabilized Phoenix occupancy</span><span class="r gr">93.4%</span></div>
           <div class="crow"><span class="l">Contractors reporting labor shortages</span><span class="r" style="color:var(--red)">92%</span></div>
@@ -693,32 +715,32 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
         </div>
         <div class="card">
           <div class="clabel g">Key trade org relationships to own</div>
-          <div class="crow"><span class="l">NARI Greater Phoenix</span><span class="r">Remodeling trade hub</span></div>
-          <div class="crow"><span class="l">Home Builders Association (HBACA)</span><span class="r">Residential builder network</span></div>
-          <div class="crow"><span class="l">Arizona Builders Alliance</span><span class="r">Commercial trade network</span></div>
-          <div class="crow"><span class="l">Arizona Multihousing Association</span><span class="r">PM list — $150 to buy</span></div>
-          <div class="crow"><span class="l">Arizona AGC</span><span class="r">GC relationships</span></div>
-          <div class="crow"><span class="l">AZ Registrar of Contractors</span><span class="r">ROC search = prospecting list</span></div>
+          <div class="crow"><span class="l">Regional remodeling associations</span><span class="r">Relationship hubs</span></div>
+          <div class="crow"><span class="l">Builder associations</span><span class="r">Residential builder network</span></div>
+          <div class="crow"><span class="l">Commercial trade groups</span><span class="r">Commercial GC network</span></div>
+          <div class="crow"><span class="l">Multifamily member directories</span><span class="r">PM list sourcing</span></div>
+          <div class="crow"><span class="l">General contractor organizations</span><span class="r">GC relationships</span></div>
+          <div class="crow"><span class="l">State contractor registry</span><span class="r">Prospecting list source</span></div>
         </div>
       </div>
       <div class="callout gr"><strong>Timing advantage:</strong> 92% of AZ construction firms can't find workers. 45% are delaying projects because of it. The first-message value prop should reduce coordination burden and quoting friction before anything else. Labor-constrained contractors respond to operational relief, not innovation stories.</div>
     </div>
 
     <div id="aq-contractor" class="tpane">
-      <div class="callout"><strong>Lead with price + speed. Lead with tech only when the contractor's digital pain is painfully obvious from the outside.</strong> The first thing a GC wants to hear is "I can cover cabinet scope fast, cleanly, below the fat-margin guys." The second thing — once proven — is "I can also stop you from dropping leads."</div>
+      <div class="callout"><strong>Lead with price and speed. Introduce tech after immediate value is proven.</strong> The first message should emphasize reliable cabinet execution with stronger economics. The second message can position tech as a practical system for protecting inbound leads and improving conversion.</div>
       <div class="funnel">
         <div class="fstage">
           <div class="fnum">1</div>
           <div class="fb">
             <div class="ft">List Building — targeted, not broad</div>
-            <div class="fd">Pull targets from ROC search + NARI, HBACA, ABA, Arizona AGC member directories. Enrich with website quality, review count, form quality, and whether they visibly market kitchen/bath work. Goal: a ranked list of owner-operators and small GCs who actually buy cabinets.</div>
+            <div class="fd">Pull targets from state registry data and regional trade directories. Enrich with website quality, customer ratings, form quality, and whether they visibly market kitchen/bath work. Goal: a ranked list of owner-operators and small GCs who actually buy cabinets.</div>
           </div>
         </div>
         <div class="fstage">
           <div class="fnum">2</div>
           <div class="fb">
             <div class="ft">First-Message Offer — short, operational, low-commitment</div>
-            <div class="fd">Under 100 words. Gong research: pitching the solution too early cuts reply rates by up to 57%. Use an interest-based CTA, not a call ask. Proven opener: <em style="color:var(--text)">"Hey [Name] — we're pricing wholesale cabinets in Phoenix intentionally below the fat-margin players. If you've got one live kitchen or investor turn that needs a sharper number, send it over and I'll price it clean with alternates. If useful, we can also tighten your website/CRM after the first job."</em></div>
+            <div class="fd">Under 100 words. Gong research: pitching the solution too early cuts reply rates by up to 57%. Use an interest-based CTA, not a call ask. Proven opener: <em style="color:var(--text)">"Hey [Name] — we provide wholesale cabinet pricing in Phoenix with a lean-margin model and fast quote turnaround. If you have one live kitchen or investor turn that needs a sharper number, send it over and I'll price it clean with alternates. If useful, we can also tighten your website/CRM after the first job."</em></div>
           </div>
         </div>
         <div class="fstage">
@@ -732,14 +754,14 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
           <div class="fnum">4</div>
           <div class="fb">
             <div class="ft">Recurring-Account Conversion — lock them in operationally</div>
-            <div class="fd">After the first job: saved spec library, standing quote template, 30-day pricing sheet on common lines, same-day revision policy. Then the tech layer becomes practical: CRM stages, missed-call text-back, review automation, pipeline dashboards, AI call handling. 87% of contractors expect AI-driven transformation — only 19% have adapted workflows. That's the second sale.</div>
+            <div class="fd">After the first job: saved spec library, standing quote template, 30-day pricing sheet on common lines, same-day revision policy. Then the tech layer becomes practical: CRM stages, missed-call text-back, testimonial automation, pipeline dashboards, and call handling support. 87% of contractors expect AI-driven transformation — only 19% have adapted workflows. That's the second sale.</div>
           </div>
         </div>
       </div>
     </div>
 
     <div id="aq-pm" class="tpane">
-      <div class="callout"><strong>The PM motion starts from a bought list, not vague prospecting.</strong> AMA membership list: $150 for phone numbers + addresses of member management companies. Enrich on LinkedIn by title: regional property manager, asset manager, portfolio manager, maintenance supervisor, renovation/project lead.</div>
+      <div class="callout"><strong>The PM motion starts from a qualified list, not vague prospecting.</strong> Use a purchased multifamily directory with phone numbers + addresses for management companies. Enrich on LinkedIn by title: regional property manager, asset manager, portfolio manager, maintenance supervisor, renovation/project lead.</div>
       <div style="margin-bottom:20px">
         <div style="font-family:var(--font-m);font-size:9px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px">LinkedIn outreach sequence (InMail under 400 chars = 22% higher response rate)</div>
         <div class="funnel">
@@ -747,7 +769,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
             <div class="fnum">1</div>
             <div class="fb">
               <div class="ft">Connection Request</div>
-              <div class="fd"><em style="color:var(--text)">"Saw you manage [property/company]. We do fast cabinet refacing for turns — new doors in 7 days, installs in about a day per unit, no full replacement unless needed. Open to a small pilot outline on one property?"</em></div>
+              <div class="fd"><em style="color:var(--text)">"Saw you manage [property/company]. We provide competitively priced cabinet supply for turns and renovation scopes, with refacing through Vulpine Homes when a lower-disruption option fits. Open to a small pilot outline on one property?"</em></div>
             </div>
           </div>
           <div class="fstage">
@@ -761,7 +783,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
             <div class="fnum">3</div>
             <div class="fb">
               <div class="ft">Property-specific angle</div>
-              <div class="fd"><em style="color:var(--text)">"If [community] has an upcoming turn cluster, refacing may let you refresh visible kitchen wear faster than full replacement — without the permit complexity."</em></div>
+              <div class="fd"><em style="color:var(--text)">"If [community] has an upcoming turn cluster, we can price full cabinet supply for heavy scopes first, and use refacing through Vulpine Homes where visible wear can be refreshed faster than full replacement."</em></div>
             </div>
           </div>
           <div class="fstage">
@@ -798,15 +820,15 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
           <div class="crow"><span class="l">Third screen</span><span class="r">Who qualifies + FAQ</span></div>
           <div class="crow"><span class="l">Review count (97% of buyers read)</span><span class="r">Prominent</span></div>
           <div class="crow"><span class="l">Review recency (74% care last 3mo)</span><span class="r">Fresh only</span></div>
-          <div class="crow"><span class="l">ROC license + insured proof</span><span class="r">Visible</span></div>
+          <div class="crow"><span class="l">State license + insured proof</span><span class="r">Visible</span></div>
           <div class="crow"><span class="l">Star rating requirement (31% = 4.5+)</span><span class="r">4.5+ required</span></div>
         </div>
       </div>
-      <div class="callout gr"><strong>The winning offer for this brand:</strong> "7-day doors, 1-day install, keep your layout, free quote." Not "save 70%" — Phoenix-specific refacing costs are inconsistent across sources ($4,500–$14,136 range). Lead with speed, disruption reduction, and layout preservation. Use "typically less than replacement" only after qualification.</div>
+      <div class="callout gr"><strong>The winning offer for this brand:</strong> Lead with cabinet supply economics for contractors and PMs: "Wholesale RTA cabinet pricing, fast quoting, and reliable project delivery." Second pitch: refacing through Vulpine Homes for qualified lower-disruption scopes. Keep the message rooted in margin clarity and low overhead execution.</div>
     </div>
 
     <div id="aq-trojan" class="tpane">
-      <div class="callout"><strong>The tech side is a Trojan horse, not an agency pitch.</strong> Don't sell "websites" or "AI solutions." Sell <strong>"job-winning infrastructure for remodelers who are dropping leads and estimates."</strong> 87% of contractors expect AI-driven transformation — only 19% have adapted. That gap is the opportunity.</div>
+      <div class="callout"><strong>The tech side is a strategic wedge, not an agency pitch.</strong> Don't sell "websites" or "AI solutions." Sell <strong>"job-winning infrastructure for remodelers who need better lead capture and estimate follow-through."</strong> 87% of contractors expect AI-driven transformation — only 19% have adapted. That gap is the opportunity.</div>
       <div style="margin-bottom:18px">
         <div style="font-family:var(--font-m);font-size:9px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px">The Contractor Growth Sprint — 7-day setup that includes:</div>
         <div class="g2">
@@ -818,17 +840,17 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
             <div class="crow"><span class="l">Simple CRM pipeline</span><span class="r">✓</span></div>
             <div class="crow"><span class="l">Review request automation</span><span class="r">✓</span></div>
             <div class="crow"><span class="l">Cabinet opportunity tags</span><span class="r">✓</span></div>
-            <div class="crow"><span class="l">AeonDial call handling</span><span class="r">↑ upsell</span></div>
+            <div class="crow"><span class="l">Inbound call automation</span><span class="r">↑ upsell</span></div>
           </div>
           <div class="card">
             <div class="clabel g">How we monetize it</div>
             <div class="crow"><span class="l">Free teardown first</span><span class="r">Audit: friction, risk, gaps</span></div>
             <div class="crow"><span class="l">Credit tech into cabinets</span><span class="r">Setup fee → first orders</span></div>
-            <div class="crow"><span class="l">AeonDial SaaS MRR</span><span class="r">$297–$497/mo</span></div>
+            <div class="crow"><span class="l">Automation SaaS MRR</span><span class="r">$297–$497/mo</span></div>
             <div class="crow"><span class="l">Site build one-time</span><span class="r">$2,500</span></div>
             <div class="crow"><span class="l">Target in 90 days</span><span class="r gr">5 clients = $1,985/mo MRR</span></div>
-            <div class="crow"><span class="l">AeonDial @ 10 clients</span><span class="r gr">$3,970/mo passive</span></div>
-            <div class="crow"><span class="l">AeonDial @ 20 clients</span><span class="r gr">$7,940/mo passive</span></div>
+            <div class="crow"><span class="l">Automation @ 10 clients</span><span class="r gr">$3,970/mo passive</span></div>
+            <div class="crow"><span class="l">Automation @ 20 clients</span><span class="r gr">$7,940/mo passive</span></div>
           </div>
         </div>
       </div>
@@ -881,9 +903,9 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
           <div class="crow"><span class="l">Contractor-facing cabinet page</span><span class="r">Build</span></div>
           <div class="crow"><span class="l">PM-facing refacing page</span><span class="r">Build</span></div>
           <div class="crow"><span class="l">Homeowner refacing landing page</span><span class="r">Build</span></div>
-          <div class="crow"><span class="l">BuildingConnected / PlanHub profile</span><span class="r">Complete</span></div>
-          <div class="crow"><span class="l">AMA membership list</span><span class="r">Buy ($150)</span></div>
-          <div class="crow"><span class="l">ROC + trade org target list</span><span class="r">Pull</span></div>
+          <div class="crow"><span class="l">Digital bidding profile</span><span class="r">Complete</span></div>
+          <div class="crow"><span class="l">Multifamily membership list</span><span class="r">Acquire</span></div>
+          <div class="crow"><span class="l">State registry + trade target list</span><span class="r">Pull</span></div>
           <div class="crow"><span class="l">Google Search campaign (exact match only)</span><span class="r">Launch</span></div>
           <div class="crow"><span class="l">Contractor outreaches/week</span><span class="r g">20/wk</span></div>
           <div class="crow"><span class="l">PM outreaches/week</span><span class="r g">10/wk</span></div>
@@ -913,7 +935,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
         <div class="card">
           <div class="clabel g">What your platform profile must show</div>
           <div class="crow"><span class="l">Precise scopes + geography</span><span class="r">Phoenix, East/West Valley, Maricopa</span></div>
-          <div class="crow"><span class="l">ROC license status</span><span class="r">Visible</span></div>
+          <div class="crow"><span class="l">State license status</span><span class="r">Visible</span></div>
           <div class="crow"><span class="l">Insurance cert + W-9 readiness</span><span class="r">Available on request</span></div>
           <div class="crow"><span class="l">Quote promise</span><span class="r">24 hrs on standard scopes</span></div>
           <div class="crow"><span class="l">Delivery confirmation</span><span class="r">Confirmed before PO</span></div>
@@ -934,12 +956,12 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
         <table>
           <thead><tr><th>Platform</th><th>Best use</th><th>How we win</th></tr></thead>
           <tbody>
-            <tr><td><strong>BuildZoom</strong></td><td>Residential remodels, light commercial</td><td class="tgr">Fast contact, organized proposal, report every win, platform-native reviews</td></tr>
-            <tr><td><strong>Houzz Pro</strong></td><td>Residential kitchens, upscale brand</td><td class="tgr">Reviews, "Responds Quickly" badge, before/after gallery, CRM discipline</td></tr>
-            <tr><td><strong>Thumbtack</strong></td><td>High-volume homeowner leads</td><td class="tgr">Respond within 4 hrs (platform documented advantage), photo-heavy profile</td></tr>
-            <tr><td><strong>BuildingConnected</strong></td><td>Commercial GC invites</td><td class="tgr">Complete profile, correct scopes, platform proposal submission, certs visible</td></tr>
-            <tr><td><strong>PlanHub</strong></td><td>SMB commercial, regional GCs</td><td class="tgr">Credentials, references, line-item bids, bid board discipline</td></tr>
-            <tr><td><strong>Procore Network</strong></td><td>Contractor network, commercial</td><td class="tgr">VIP's listing is thin (1 user visible). We go deeper and beat them here first.</td></tr>
+            <tr><td><strong>Platform A</strong></td><td>Residential remodels, light commercial</td><td class="tgr">Fast contact, organized proposal, and platform-native testimonials</td></tr>
+            <tr><td><strong>Platform B</strong></td><td>Residential kitchens, upscale brand</td><td class="tgr">Testimonials, response badges, before/after gallery, CRM discipline</td></tr>
+            <tr><td><strong>Platform C</strong></td><td>High-volume homeowner leads</td><td class="tgr">Respond within 4 hours and maintain a photo-heavy profile</td></tr>
+            <tr><td><strong>Platform D</strong></td><td>Commercial GC invites</td><td class="tgr">Complete profile, correct scopes, clean proposal submissions, certs visible</td></tr>
+            <tr><td><strong>Platform E</strong></td><td>SMB commercial, regional GCs</td><td class="tgr">Credentials, references, line-item bids, bid-board discipline</td></tr>
+            <tr><td><strong>Platform F</strong></td><td>Contractor network, commercial</td><td class="tgr">Profile completeness plus fast response discipline creates clear advantage.</td></tr>
           </tbody>
         </table>
       </div>
@@ -960,23 +982,23 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
     <div class="g4" style="margin-bottom:28px">
       <div class="stat-chip"><div class="sc-label">Conservative 90-day target</div><div class="sc-val gr">$45K+</div><div class="sc-sub">Gross profit, 90 days</div></div>
       <div class="stat-chip"><div class="sc-label">Supply (2 MFU deals)</div><div class="sc-val g">$26,286</div><div class="sc-sub">2× 10-unit PM orders</div></div>
-      <div class="stat-chip"><div class="sc-label">AeonDial MRR by day 90</div><div class="sc-val">$1,985</div><div class="sc-sub">5 clients @ $397/mo</div></div>
-      <div class="stat-chip"><div class="sc-label">Refacing (3 jobs/mo)</div><div class="sc-val">$10,419</div><div class="sc-sub">3 jobs × 3 months</div></div>
+      <div class="stat-chip"><div class="sc-label">Automation MRR by day 90</div><div class="sc-val">$1,985</div><div class="sc-sub">5 clients @ $397/mo</div></div>
+      <div class="stat-chip"><div class="sc-label">Refacing via Vulpine Homes (3 jobs/mo)</div><div class="sc-val">$10,419</div><div class="sc-sub">3 jobs × 3 months</div></div>
     </div>
     <div class="plist" style="margin-bottom:40px">
       <div class="pitem">
         <div class="prank pr1">1</div>
         <div class="pb">
           <div class="pt">Cabinet Supply — Multifamily / Property Manager Outreach</div>
-          <div class="pd">Highest leverage for a two-person team. One PM relationship = 10–50 unit orders. The pitch is simple: side-by-side, VIP charges $10,600, we charge $5,714. On 25 units that's $122K in savings — a budget argument, not a price negotiation. Buy the AMA list ($150). Start LinkedIn outreach on day one. Target: 2–3 PM relationships in 90 days. Our time per close: ~3 hours. Labor brokering adds $570/kitchen passively on top.</div>
+          <div class="pd">Highest leverage for a two-person team. One PM relationship = 10–50 unit orders. The pitch is simple: side-by-side benchmark pricing at $10,600 versus our $5,714 model. On 25 units that is $122K in projected savings, framed as a budget case rather than a discount argument. Acquire a qualified multifamily list and start LinkedIn outreach on day one. Target: 2–3 PM relationships in 90 days. Our time per close: ~3 hours. Labor brokering adds $570/kitchen passively on top.</div>
           <div class="pm">Target: 2× 10-unit deals = $26,286 profit — 3 hrs of sales work each</div>
         </div>
       </div>
       <div class="pitem">
         <div class="prank pr2">2</div>
         <div class="pb">
-          <div class="pt">AeonDial SaaS — Warm Contractor Network Onboarding</div>
-          <div class="pd">RefaceKit, G3, and existing contractor relationships are warm leads now. Onboarding 5–8 AeonDial clients at $397/mo = $1,985–$3,176 MRR that compounds every month with zero marginal time cost after setup. Pair with a website build upsell ($2,500 one-time) for immediate cash. Lead with the free teardown — not the build. Make the tech feel like revenue protection, not shiny software.</div>
+          <div class="pt">Automation SaaS — Warm Contractor Network Onboarding</div>
+          <div class="pd">Existing contractor relationships are warm leads now. Onboarding 5–8 automation clients at $397/mo = $1,985–$3,176 MRR that compounds every month with near-zero marginal time cost after setup. Pair with a website build upsell ($2,500 one-time) for immediate cash. Lead with the free teardown, not the build. Make the tech feel like revenue protection, not shiny software.</div>
           <div class="pm">Target: 5 clients = $23,820 annualized MRR + $12,500 in site builds</div>
         </div>
       </div>
@@ -984,7 +1006,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
         <div class="prank pr3">3</div>
         <div class="pb">
           <div class="pt">Cabinet Refacing — Build Pipeline Once Crew Capacity Confirmed</div>
-          <div class="pd">Best margin % (40–47%) but crew-bottlenecked. Don't lead here until the licensed sub's capacity is confirmed and a backup crew is identified. Focus here month 2–3 once supply is moving. Use residential refacing as the entry point for future MFU refacing contracts with the same PMs we're already selling supply to. 97% of buyers read reviews — capture them on every close.</div>
+          <div class="pd">Best margin % (40–47%) but crew-bottlenecked. Keep this as a secondary layer, not a standalone track. Activate only after cabinet supply momentum is established and crew capacity is confirmed. Use refacing through Vulpine Homes to expand value inside accounts already buying supply. 97% of buyers read reviews — capture them on every close.</div>
           <div class="pm">Target: 3 jobs/mo by Day 60 = $10,419 additional monthly profit layer</div>
         </div>
       </div>
@@ -994,8 +1016,8 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
     <div class="card" style="margin-bottom:28px">
       <div class="clabel">Time allocation — 2 people, first 90 days</div>
       <div class="clegend" style="margin-top:8px">
-        <span><span class="cdot" style="background:#4caf7d"></span>Supply + PM outreach (50%)</span>
-        <span><span class="cdot" style="background:#c9a84c"></span>AeonDial onboarding + builds (35%)</span>
+        <span><span class="cdot" style="background:#4caf7d"></span>Cabinet Supply — Core Engine (50%)</span>
+        <span><span class="cdot" style="background:#c9a84c"></span>Automation onboarding + builds (35%)</span>
         <span><span class="cdot" style="background:#5b9cf6"></span>Refacing pipeline setup (15%)</span>
       </div>
       <div class="cwrap" style="height:200px"><canvas id="tchart"></canvas></div>
@@ -1004,10 +1026,10 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
     <!-- Timeline -->
     <div style="font-family:var(--font-m);font-size:9px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px">12-Month Milestone Timeline</div>
     <div class="tl">
-      <div class="tli"><div class="tll"><span class="tlm">Month 1</span></div><div class="tlc"><div class="tld"></div><div class="tlln"></div></div><div class="tlr"><div class="tlt">Foundation + first deals</div><div class="tld2">LLC active, TPT license, reseller cert, website live, AMA list purchased, first PM outreach, first AeonDial client onboarded</div><div class="tlrev">Rev target: $3,200–$11,700</div></div></div>
-      <div class="tli"><div class="tll"><span class="tlm">Month 2–3</span></div><div class="tlc"><div class="tld"></div><div class="tlln"></div></div><div class="tlr"><div class="tlt">Ramp + first PM relationship closed</div><div class="tld2">First 10-unit MFU supply deal closed, refacing pipeline opened, 2–3 AeonDial clients live, first platform reviews collected on BuildZoom/Houzz</div><div class="tlrev">Rev target: $14,900–$35,100/mo</div></div></div>
+      <div class="tli"><div class="tll"><span class="tlm">Month 1</span></div><div class="tlc"><div class="tld"></div><div class="tlln"></div></div><div class="tlr"><div class="tlt">Foundation + first deals</div><div class="tld2">LLC active, TPT license, reseller cert, website live, multifamily list acquired, first PM outreach, first automation client onboarded</div><div class="tlrev">Rev target: $3,200–$11,700</div></div></div>
+      <div class="tli"><div class="tll"><span class="tlm">Month 2–3</span></div><div class="tlc"><div class="tld"></div><div class="tlln"></div></div><div class="tlr"><div class="tlt">Ramp + first PM relationship closed</div><div class="tld2">First 10-unit MFU supply deal closed, refacing pipeline opened, 2–3 automation clients live, first platform testimonials collected</div><div class="tlrev">Rev target: $14,900–$35,100/mo</div></div></div>
       <div class="tli"><div class="tll"><span class="tlm">Month 4</span></div><div class="tlc"><div class="tld gr"></div><div class="tlln"></div></div><div class="tlr"><div class="tlt gr">MFU account milestone (aggressive path)</div><div class="tld2">First multifamily bulk account landed. Supply volume jumps. Refacing pitch added to same PM relationships. Second contractor tech client closes.</div><div class="tlrev">Rev target: $26,600–$46,800/mo</div></div></div>
-      <div class="tli"><div class="tll"><span class="tlm">Month 6</span></div><div class="tlc"><div class="tld" style="background:var(--gold)"></div><div class="tlln"></div></div><div class="tlr"><div class="tlt g">$250K cumulative revenue milestone</div><div class="tld2">Both scenarios cross $250K gross. Second contractor partner channel activated. AeonDial MRR compounding. Case studies published.</div><div class="tlrev">Cumulative: $109,600 (conservative) → $238,700 (aggressive)</div></div></div>
+      <div class="tli"><div class="tll"><span class="tlm">Month 6</span></div><div class="tlc"><div class="tld" style="background:var(--gold)"></div><div class="tlln"></div></div><div class="tlr"><div class="tlt g">$250K cumulative revenue milestone</div><div class="tld2">Both scenarios cross $250K gross. Second contractor partner channel activated. Automation MRR compounding. Case studies published.</div><div class="tlrev">Cumulative: $109,600 (conservative) → $238,700 (aggressive)</div></div></div>
       <div class="tli"><div class="tll"><span class="tlm">Month 9–12</span></div><div class="tlc"><div class="tld"></div><div class="tlln"></div></div><div class="tlr"><div class="tlt">Scale + optimization</div><div class="tld2">Win-loss review by channel. Cut weak platforms. Double down on top 2 acquisition channels. Add 2nd MFU refacing account. Monthly dashboard live.</div><div class="tlrev">Year-1 total: $252,200 → $621,000</div></div></div>
     </div>
   </div>
@@ -1024,7 +1046,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
       <p class="sec-desc">Every operational and market risk identified with specific mitigations built into the plan.</p>
     </div>
     <div class="rgrid">
-      <div class="rcard"><span class="rimp h">High</span><div class="rtitle">Single supplier concentration</div><div class="rmit">Impress Cabinetry outage stops Stream 1. Mitigation: pre-vet 2 backup RTA suppliers with pricing and lead times confirmed before month 2.</div></div>
+      <div class="rcard"><span class="rimp h">High</span><div class="rtitle">Single supplier concentration</div><div class="rmit">Primary wholesale supplier outage stops Stream 1. Mitigation: pre-vet 2 backup RTA suppliers with pricing and lead times confirmed before month 2.</div></div>
       <div class="rcard"><span class="rimp h">High</span><div class="rtitle">Subcontractor capacity limit</div><div class="rmit">One licensed sub with reliability questions. Mitigation: build bench of 3+ refacing crews by month 3, pay top-of-market per job to lock loyalty before the pipeline fills.</div></div>
       <div class="rcard"><span class="rimp m">Medium</span><div class="rtitle">Phoenix market softening</div><div class="rmit">Flip market slows → Stream 1 dips. Mitigation: refacing demand is more mortgage-rate resilient. Tilt mix toward Stream 2 when flip pipeline softens.</div></div>
       <div class="rcard"><span class="rimp m">Medium</span><div class="rtitle">TPT / MRRA misclassification</div><div class="rmit">Refacing classified incorrectly = sales tax exposure. Mitigation: annual review with AZ-licensed CPA, clear job-type tagging in CRM from day one.</div></div>
@@ -1042,14 +1064,14 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
     <div class="sec-hdr">
       <div class="sec-label">Section 07</div>
       <h2 class="sec-title">The <em>Partnership</em></h2>
-      <p class="sec-desc">Vulpine, LLC × SNRG Labs, LLC. Two operators built to complement. One thinks in systems. One closes the room.</p>
+      <p class="sec-desc">Vulpine Cause leadership partnership. Two operators built to complement. One thinks in systems. One closes the room.</p>
     </div>
     <div class="fgrid">
       <div class="fcard">
         <div class="finitials">DC</div>
         <div class="fname">Daniel Cruz</div>
-        <div class="frole">Founder — Vulpine, LLC / SNRG Labs, LLC</div>
-        <div class="fdesc">Systems architect and strategic operator. Built AeonDial (multi-tenant AI call center SaaS), Vulpine Homes (lead gen + kitchen remodel vertical), and managed call center operations for RefaceKit at scale. Brings the technical infrastructure, data systems, and underlying strategy that turns a two-person operation into something that runs like a machine. Spots the pricing arbitrage and the platform gaps before anyone else is looking for them.</div>
+        <div class="frole">Founder — Vulpine Cause</div>
+        <div class="fdesc">Systems architect and strategic operator. Built call automation workflows, Vulpine Homes (lead gen + kitchen remodel vertical), and managed high-volume inbound operations at scale. Brings the technical infrastructure, data systems, and underlying strategy that turns a two-person operation into something that runs like a machine. Drives pricing discipline, margin clarity, and repeatable execution.</div>
         <div class="ftraits">
           <span class="trait">Systems architect</span><span class="trait">SaaS + CRM build</span><span class="trait">Call center ops</span><span class="trait">Tech infrastructure</span><span class="trait">MFU lead gen</span>
         </div>
@@ -1057,7 +1079,7 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
       <div class="fcard">
         <div class="finitials">MM</div>
         <div class="fname">Mike Musonda</div>
-        <div class="frole">Co-Founder — The Phoenix Cabinet Co.</div>
+        <div class="frole">Co-Founder — Vulpine Cause</div>
         <div class="fdesc">Diplomatic executor and relationship builder. The operator who walks into a property manager's office and walks out with a 25-unit contract. Brings the precision that keeps refacing crews on schedule, client relationships tight, and the business grounded in real delivery — not projected revenue. Translates strategy into conversations that close. His Phoenix construction network is the first 90 days of pipeline before the first ad dollar is spent.</div>
         <div class="ftraits">
           <span class="trait">Client relationships</span><span class="trait">PM outreach</span><span class="trait">Contractor network</span><span class="trait">Deal execution</span><span class="trait">Operations</span>
@@ -1115,31 +1137,31 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
     <div class="sec-hdr">
       <div class="sec-label">Section 09</div>
       <h2 class="sec-title">Source <em>Documents</em></h2>
-      <p class="sec-desc">All research and planning documents underlying this battle plan. Click any to read inline.</p>
+      <p class="sec-desc">All research and planning documents underlying this business plan. Click any to read inline.</p>
     </div>
     <div class="dgrid">
       <a class="dcard" onclick="openDoc('bizplan')">
         <div class="dicon"></div>
-        <div class="dtitle">The Phoenix Cabinet Co. — Business Plan</div>
+        <div class="dtitle">Vulpine Cause — Business Plan</div>
         <div class="ddesc">Full year-one operating plan. Two-stream model, margin structure, 12-month projections, startup costs, risk analysis.</div>
         <span class="dbadge">View Document</span>
       </a>
       <a class="dcard" onclick="openDoc('mfu')">
         <div class="dicon"></div>
         <div class="dtitle">Multifamily Cabinet Refacing — Industry Research</div>
-        <div class="ddesc">Competitor landscape, PM pain points, pricing models, PMS software ecosystem, nuDoors deep dive.</div>
+        <div class="ddesc">Competitor landscape, PM pain points, pricing models, and software ecosystem patterns relevant to multifamily execution.</div>
         <span class="dbadge">View Document</span>
       </a>
       <a class="dcard" onclick="openDoc('bidding')">
         <div class="dicon"></div>
         <div class="dtitle">Winning Construction Jobs on Digital Bidding Platforms</div>
-        <div class="ddesc">How cabinet suppliers win on BuildZoom, Houzz Pro, BuildingConnected, PlanHub. VIP Cabinets competitive profile. 6-month acquisition timeline.</div>
+        <div class="ddesc">How cabinet suppliers win on digital bidding platforms, with profile quality, response SLAs, and a 6-month acquisition timeline.</div>
         <span class="dbadge">View Document</span>
       </a>
       <a class="dcard" onclick="openDoc('research')">
         <div class="dicon md"></div>
         <div class="dtitle">Customer Acquisition Strategy — Deep Research Report</div>
-        <div class="ddesc">Full go-to-market acquisition system: contractor funnel, PM outreach sequences, Google Ads strategy, Trojan Horse tech playbook, cross-sell map, 90-day sprint.</div>
+        <div class="ddesc">Full go-to-market acquisition system: contractor funnel, PM outreach sequences, Google Ads strategy, tech wedge playbook, cross-sell map, 90-day sprint.</div>
         <span class="dbadge">View Document</span>
       </a>
     </div>
@@ -1161,11 +1183,9 @@ footer .fl img{width:22px;height:22px;border-radius:50%;object-fit:cover;border:
 <footer>
   <div class="fl">
     <img src="vulpine-logo.png" alt="Vulpine">
-    <img src="snrg-logo.png" alt="SNRG Labs">
-    <img src="aeondial-logo.png" alt="AeonDial">
   </div>
-  <div><span class="fb">Vulpine, LLC + SNRG Labs, LLC</span> — Confidential Battle Plan — Phoenix, Arizona — May 2026</div>
-  <div style="margin-top:6px;font-size:10px">Prepared for internal strategic review. Not for external distribution.</div>
+  <div><span class="fb">Vulpine Cause</span> — Confidential Strategic Plan — Phoenix, Arizona — May 2026</div>
+  <div style="margin-top:6px;font-size:10px">Prepared for internal operations and execution. Not for external distribution.</div>
 </footer>
 
 <script>
@@ -1262,7 +1282,7 @@ function buildTime() {
   new Chart(ctx,{
     type:'doughnut',
     data:{
-      labels:['Supply + PM outreach','AeonDial + site builds','Refacing pipeline'],
+      labels:['Cabinet Supply — Core Engine','Automation + site builds','Refacing via Vulpine Homes'],
       datasets:[{data:[50,35,15],backgroundColor:['#4caf7d','#c9a84c','#5b9cf6'],borderWidth:0}]
     },
     options:{responsive:true,maintainAspectRatio:false,cutout:'65%',
@@ -1286,19 +1306,19 @@ window.addEventListener('scroll',()=>{
 // ── DOCS ────────────────────────────────────────────────────
 const DOCS = {
   bizplan:{
-    title:'The Phoenix Cabinet Co. — Business Plan',
-    html:`<h2>The Phoenix Cabinet Co. — Confidential Business Plan</h2>
-    <p><strong class="hl">Date:</strong> May 2026 | <strong class="hl">Type:</strong> Year-One Operating Plan | <strong class="hl">Entities:</strong> Vulpine, LLC + SNRG Labs, LLC</p>
+    title:'Vulpine Cause — Business Plan',
+    html:`<h2>Vulpine Cause — Confidential Business Plan</h2>
+    <p><strong class="hl">Date:</strong> May 2026 | <strong class="hl">Type:</strong> Year-One Operating Plan | <strong class="hl">Entity:</strong> Vulpine Cause</p>
     <h3>Executive Summary</h3>
-    <p>A single-brand, two-revenue-stream home improvement company capturing two adjacent slices of the Phoenix kitchen renovation economy without inventory, real estate, or W-2 payroll. Pure broker-installer hybrid — reseller certificate and Arizona TPT license, tax-exempt purchasing, drop-shipped RTA cabinets (Stream 1), coordinated cabinet refacing with 1099 subcontractors (Stream 2).</p>
+    <p>A supply-first, two-stream home improvement company capturing adjacent slices of the Phoenix kitchen renovation economy without inventory, real estate, or W-2 payroll. Core model: reseller certificate and Arizona TPT license, tax-exempt purchasing, and drop-shipped RTA cabinets as the primary engine (Stream 1). Secondary model: coordinated cabinet refacing offered through Vulpine Homes with 1099 subcontractors (Stream 2).</p>
     <ul><li><strong>Conservative:</strong> $252,200 gross revenue / $88,850 gross profit (35.2% blended)</li><li><strong>Aggressive:</strong> $621,000 gross revenue / $228,640 gross profit (36.8% blended)</li><li><strong>Startup capital:</strong> $29,000–$69,000 ($40–50K recommended)</li></ul>
-    <h3>Stream 1 — Cabinet Supply Resale (per $5,714 order)</h3>
+    <h3>Stream 1 — Cabinet Supply — Wholesale RTA (per $5,714 order)</h3>
     <table><thead><tr><th>Line Item</th><th>Amount</th><th>% of Sale</th></tr></thead><tbody>
     <tr><td>Sale Price</td><td>$5,714</td><td>100%</td></tr>
     <tr><td>COGS (wholesale)</td><td>($4,400)</td><td>77%</td></tr>
     <tr><td>Gross Profit</td><td class="gr">$1,314</td><td class="gr">23%</td></tr>
     </tbody></table>
-    <h3>Stream 2 — Cabinet Refacing (per $8,500 job)</h3>
+    <h3>Stream 2 — Cabinet Refacing via Vulpine Homes (per $8,500 job)</h3>
     <table><thead><tr><th>Line Item</th><th>Amount</th><th>% of Sale</th></tr></thead><tbody>
     <tr><td>Sale Price</td><td>$8,500</td><td>100%</td></tr>
     <tr><td>CNC doors + hardware</td><td>($2,400)</td><td>28.2%</td></tr>
@@ -1336,10 +1356,10 @@ const DOCS = {
     </tbody></table>
     <h3>Competitor Landscape</h3>
     <table><thead><tr><th>Company</th><th>Focus</th><th>Pricing</th><th>MFU Relevance</th></tr></thead><tbody>
-    <tr><td><strong>nuDoors</strong></td><td>MFU + B2B</td><td>40–50% savings vs replacement</td><td class="hl">High</td></tr>
-    <tr><td><strong>Qwikkit</strong></td><td>MFU Specialist</td><td>Portfolio-based</td><td class="gr">Very High</td></tr>
-    <tr><td><strong>CRS Cabinets</strong></td><td>MFU Specialist</td><td>B2B portfolio pricing</td><td class="gr">Very High</td></tr>
-    <tr><td>Kitchen Saver</td><td>B2C</td><td>$4,000–$10,000 + 15–21% APR</td><td>Low</td></tr>
+    <tr><td><strong>Regional Competitor A</strong></td><td>MFU + B2B</td><td>40–50% savings vs replacement</td><td class="hl">High</td></tr>
+    <tr><td><strong>Regional Competitor B</strong></td><td>MFU Specialist</td><td>Portfolio-based</td><td class="gr">Very High</td></tr>
+    <tr><td><strong>Regional Competitor C</strong></td><td>MFU Specialist</td><td>B2B portfolio pricing</td><td class="gr">Very High</td></tr>
+    <tr><td>Regional Competitor D</td><td>B2C</td><td>$4,000–$10,000 + financing options</td><td>Low</td></tr>
     </tbody></table>
     <h3>Property Manager Pain Points</h3>
     <ul>
@@ -1349,7 +1369,7 @@ const DOCS = {
     <li>Summer rush exacerbates labor shortages</li>
     <li>Large upfront capital for full-building invoice</li>
     </ul>
-    <h3>nuDoors — Tech-Enabled MFU Competitor Analysis</h3>
+    <h3>Tech-Enabled MFU Competitor Analysis</h3>
     <ul>
     <li><strong>nuEstimate:</strong> Instant online quotes, bypassing on-site measurement delays</li>
     <li><strong>Select Series:</strong> HDF core, bacteria/water-resistant, 6× thicker than standard paint</li>
@@ -1358,7 +1378,7 @@ const DOCS = {
     <li><strong>Weaknesses:</strong> Limited door profiles, can't handle structural/layout changes</li>
     </ul>
     <h3>Property Management Software Ecosystem</h3>
-    <p>Integration with PMS platforms is critical for vendor adoption. Top platforms: AppFolio (12.16% share, #1 ranked, AI-powered), Entrata (8.50%), Yardi Voyager (6.42%), Buildium (5.46%). Vendors who integrate streamline invoicing, maintenance requests, and unit-turn scheduling — creating a procurement moat.</p>`
+    <p>Integration with property management software is critical for vendor adoption. Top platforms vary by submarket, but vendors that integrate invoicing, maintenance requests, and unit-turn scheduling create a clear procurement moat.</p>`
   },
   bidding:{
     title:'Winning Construction Jobs on Digital Bidding Platforms',
@@ -1373,8 +1393,8 @@ const DOCS = {
     <tr><td>Price competitiveness</td><td>15%</td><td>Critical only after buyer believes you can deliver</td></tr>
     <tr><td>Platform profile strength</td><td>5%</td><td>Scores, badges, engagement increase visibility</td></tr>
     </tbody></table>
-    <h3>VIP Cabinets Phoenix — Competitive Digital Profile</h3>
-    <p>Phoenix-stocked, factory-direct, online-first, value-positioned. Flat-pack 3–5 days, factory-built 2 weeks. All-plywood, CARB2 compliant, soft-close hardware. List pricing: base cabinets $160–$487, pantry $900. Verified Procore Network presence: 1 visible user, $1M–$10M contract band. <strong class="hl">No public BuildZoom profile found. No verifiable bid-history trail.</strong> Their digital reputation is thinner than their actual volume. That's our window.</p>
+    <h3>Regional Competitor — Competitive Digital Profile</h3>
+    <p>Phoenix-stocked, factory-direct, online-first, value-positioned. Flat-pack 3–5 days, factory-built 2 weeks. All-plywood, CARB2 compliant, soft-close hardware. List pricing: base cabinets $160–$487, pantry $900. <strong class="hl">Public platform depth appears limited in some channels.</strong> The opportunity is to outperform with profile completeness, response speed, and proposal clarity.</p>
     <h3>Response SLA Commitments</h3>
     <ul>
     <li>Auto-acknowledgment: &lt; 5 minutes</li>
@@ -1394,33 +1414,33 @@ const DOCS = {
   },
   research:{
     title:'Customer Acquisition Strategy — Deep Research Report',
-    html:`<h2>Customer Acquisition Strategy — Phoenix Cabinet + Tech Business</h2>
+    html:`<h2>Customer Acquisition Strategy — Vulpine Cause Cabinet + Tech Business</h2>
     <h3>Strategic Thesis</h3>
-    <p>Don't market this as three unrelated businesses. Run one wedge-based acquisition system with different front doors for different buyer types. For contractors: cabinet economics first, tech second, referrals third. For multifamily operators: fast refacing for turns, supply for heavier scopes, tech as back-office stickiness. For homeowners: refacing as low-friction entry, full replacement as upsell. One relationship unlocks multiple monetization routes.</p>
+    <p>Don't market this as three unrelated businesses. Run one wedge-based acquisition system with different front doors for different buyer types. For contractors: cabinet economics first, tech second, referrals third. For multifamily operators: supply for heavier scopes first, then refacing through Vulpine Homes where lower-disruption upgrades fit. For homeowners: supply/replacement economics first, with refacing through Vulpine Homes as a selective entry. One relationship unlocks multiple monetization routes.</p>
     <h3>Market Context (Verified Data)</h3>
     <ul>
     <li>AZ Registrar of Contractors licenses 45,000+ contractors — market is large but fragmented</li>
-    <li>Arizona Multihousing Association: 2,600+ members, membership list available for $150</li>
-    <li>Yardi Matrix tracks 1,978 properties and 423,774 apartment units in Phoenix</li>
+    <li>Regional multifamily associations: 2,600+ members across key directories</li>
+    <li>Public market data tracks 1,978 properties and 423,774 apartment units in Phoenix</li>
     <li>Phoenix MFU net absorption Q1 2026: 6,261 units; stabilized occupancy: 93.4%</li>
     <li>92% of AZ construction firms report difficulty finding workers</li>
     <li>45% say labor shortages cause project delays — strong first-message hook</li>
     </ul>
     <h3>Contractor Funnel</h3>
-    <p><strong>Stage 1 — List Building:</strong> ROC search + NARI, HBACA, ABA, Arizona AGC member directories. Score each firm on digital pain: website quality, review count, form quality, kitchen/bath scope visibility.</p>
-    <p><strong>Stage 2 — First Message (under 100 words):</strong> Gong research shows pitching solution too early cuts reply rates by 57%. Use interest-based CTA, not a call ask. Proven opener: "Hey [Name] — we're pricing wholesale cabinets intentionally below the fat-margin players. If you've got one live kitchen or investor turn that needs a sharper number, send it over and I'll price it clean with alternates."</p>
+    <p><strong>Stage 1 — List Building:</strong> State registry search + regional trade directories. Score each firm on digital pain: website quality, customer ratings, form quality, kitchen/bath scope visibility.</p>
+    <p><strong>Stage 2 — First Message (under 100 words):</strong> Gong research shows pitching solution too early cuts reply rates by 57%. Use interest-based CTA, not a call ask. Proven opener: "Hey [Name] — we provide wholesale cabinets with lean margins and fast quote turnaround. If you've got one live kitchen or investor turn that needs a sharper number, send it over and I'll price it clean with alternates."</p>
     <p><strong>Stage 3 — Tripwire:</strong> 24-hour cabinet quote, 3-option package, or missed-call teardown. Don't make it large. Make it fast and undeniable.</p>
-    <p><strong>Stage 4 — Recurring Account:</strong> Saved spec library, standing quote template, 30-day pricing sheet. Then: CRM, missed-call text-back, review automation, AeonDial call handling. 87% of contractors expect AI transformation — only 19% have adapted.</p>
+    <p><strong>Stage 4 — Recurring Account:</strong> Saved spec library, standing quote template, 30-day pricing sheet. Then: CRM, missed-call text-back, testimonial automation, and call handling support. 87% of contractors expect AI transformation — only 19% have adapted.</p>
     <h3>Property Manager Outreach</h3>
-    <p>Start from AMA membership list ($150). Enrich on LinkedIn by title. LinkedIn InMail response rates: 10–25%. InMails under 400 characters get 22% higher-than-average response. Gong recommends 6–12 touch omnichannel cadence.</p>
-    <p><strong>Winning offer:</strong> "Vacant-turn pilot with budgetary quote in one day." Not "free consultation." Move from LinkedIn message to quote conversation by asking for exactly one property, one unit type, and cabinet photos.</p>
+    <p>Start from a qualified multifamily membership list. Enrich on LinkedIn by title. LinkedIn InMail response rates: 10–25%. InMails under 400 characters get 22% higher-than-average response. Gong recommends 6–12 touch omnichannel cadence.</p>
+    <p><strong>Winning offer:</strong> "Wholesale RTA cabinet pricing with a one-day budgetary quote for a vacant-turn pilot." Not "free consultation." Move from LinkedIn message to quote conversation by asking for exactly one property, one unit type, and cabinet photos.</p>
     <h3>Residential Paid Search</h3>
     <p>Start with exact/phrase match on strict high-intent terms only. Campaign 1: "cabinet refacing phoenix" and close variants. Campaign 2: comparison intent. Campaign 3: geographic segmentation only after conversion data validates. Landing page must match the ad promise exactly. 97% of consumers read local reviews; 74% care about last 3 months; 31% require 4.5+ stars.</p>
-    <p><strong>Winning offer headline:</strong> "7-day doors, 1-day install, keep your layout, free quote." Not a blanket price guarantee — Phoenix refacing costs vary widely ($4,500–$14,136) across sources.</p>
-    <h3>Trojan Horse Tech Playbook</h3>
-    <p>Sell "job-winning infrastructure for remodelers who are dropping leads" — not "websites" or "AI solutions." Lead with a free teardown. Credit setup fee into first cabinet orders. Deploy AeonDial as the embedded call handling layer. 77% of contractors who optimized software adoption reported increased profit margins.</p>
+    <p><strong>Winning offer headline:</strong> "Wholesale RTA cabinet pricing, fast quote turnaround, and reliable project delivery." Secondary headline: "Refacing through Vulpine Homes for qualified lower-disruption scopes."</p>
+    <h3>Strategic Tech Wedge Playbook</h3>
+    <p>Sell "job-winning infrastructure for remodelers who are dropping leads" — not "websites" or "AI solutions." Lead with a free teardown. Credit setup fee into first cabinet orders. Deploy embedded call handling as an operational layer. 77% of contractors who optimized software adoption reported increased profit margins.</p>
     <h3>Cross-Sell Architecture</h3>
-    <p>Tech client → supply account. Tech client → refacing referral. Supply customer → tech client. Supply customer's homeowner → refacing lead. Refacing lead → supply when boxes are bad. MFU pilot → supply program for heavier scopes. PM → tech referral through their vendor relationships.</p>
+    <p>Tech client → supply account. Tech client → refacing referral through Vulpine Homes. Supply customer → tech client. Supply customer's homeowner → refacing lead through Vulpine Homes. Refacing lead → supply when boxes are bad. MFU pilot → supply program for heavier scopes. PM → tech referral through their vendor relationships.</p>
     <p><strong>Operational rule:</strong> Every intake, quote, call log, and job closeout must capture customer type, scope type, and next-best offer. If the CRM doesn't ask those questions, the cross-sell map stays theoretical.</p>`
   }
 };
